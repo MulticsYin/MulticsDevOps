@@ -1,23 +1,33 @@
 Ubuntu下Git服务器安装与配置
 
-#### 1. 安装  
-##### 1.1 安装Git:  
+#### 1. 安装
+##### 1.1 安装Git:
 ```$ sudo apt-get install git git-core```
-##### 1.2 安装 Gitosis  
-```$ sudo apt-get install python-setuptools
+##### 1.2 安装 Gitosis
+```
+$ sudo apt-get install python-setuptools
 $ mkdir ~/git; cd ~/git; git clone https://github.com/res0nat0r/gitosis.git
-$ cd gitosis; sudo python setup.py install```
+$ cd gitosis; sudo python setup.py install
+```
 ##### 1.3 安装 openssh服务器
-```$ sudo apt-get install openssh-server openssh-client```
+```
+$ sudo apt-get install openssh-server openssh-client
+```
 ##### 1.4 增加名为Git的用户
-```$ sudo adduser --system --shell /bin/bash  --gecos 'git version control' --group --disabled-password --home /home/git git
-$ sudo passwd git```
+```
+$ sudo adduser --system --shell /bin/bash  --gecos 'git version control' --group --disabled-password --home /home/git git
+$ sudo passwd git
+```
 ##### 1.5 上传公钥(如果没有，用 ssh-keygen -t rsa 生成)到Git服务器
-本地客户端操作  
-```$ scp .ssh/id_rsa.pub git@YOUR_SERVER:/home/git（YOUR_SERVER换成你服务器IP或域名）```
-Git服务器操作  
-```$ sudo -H -u git gitosis-init < /home/git/id_rsa.pub
-$ sudo chmod 755 /home/git/repositories/gitosis-admin.git/hooks/post-update```
+本地客户端操作
+```
+$ scp .ssh/id_rsa.pub git@YOUR_SERVER:/home/git（YOUR_SERVER换成你服务器IP或域名）
+```
+Git服务器操作
+```
+$ sudo -H -u git gitosis-init < /home/git/id_rsa.pub
+$ sudo chmod 755 /home/git/repositories/gitosis-admin.git/hooks/post-update
+```
 #### 2. 配置
 ##### 2.1 修改配置文件
 ```
