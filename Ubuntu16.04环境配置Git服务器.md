@@ -1,15 +1,15 @@
 Ubuntu下Git服务器安装与配置
 
-1. 安装
-1.1 安装Git:
+### 1. 安装
+##### 1.1 安装Git:
 $ sudo apt-get install git git-core
 
-1.2 安装 Gitosis
+##### 1.2 安装 Gitosis
 $ sudo apt-get install python-setuptools 
 $ mkdir ~/git; cd ~/git; git clone https://github.com/res0nat0r/gitosis.git 
 $ cd gitosis; sudo python setup.py install
 
-1.3 安装 openssh服务器
+##### 1.3 安装 openssh服务器
 $ sudo apt-get install openssh-server openssh-client
 
 1.4 增加名为Git的用户
