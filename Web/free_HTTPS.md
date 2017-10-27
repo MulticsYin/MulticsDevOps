@@ -32,10 +32,10 @@ include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 ```  
 和  
 ```
-# Redirect non-https traffic to https
+<注释 Redirect non-https traffic to https 注释>
 if ($scheme != "https") {
   return 301 https://$host$request_uri;
-} # managed by Certbot
+} <注释 managed by Certbot 注释>
 ```
 这里建议配置 http2，这要求 Nginx 版本要大于 1.9.5。HTTP2 具有更快的 HTTPS 传输性能，非常值得开启（关于性能你可以看一下这篇文章）。需要开启HTTP/2其实很简单，只需要在 nginx.conf 的 listen 443 ssl; 后面加上 http2 就好了。如下所示：  
 ```
