@@ -24,18 +24,19 @@ $ sudo certbot --nginx
 ```  
 `certbot` 会自动检查到你的 `nginx.conf` 下的配置，把你所有的虚拟站点都列出来，然后让你选择需要开启 https 的站点。你就简单的输入列表编号（用空格分开），然后，`certbot` 就帮你下载证书并更新 `nginx.conf` 了。  
 你打开你的 nginx.conf 文件 ，你可以发现你的文件中的 server 配置中可能被做了如下的修改：  
-`listen 443 ssl; # managed by Certbot`
-`ssl_certificate /etc/letsencrypt/live/coolshell.cn/fullchain.pem; # managed by Certbot`
-`ssl_certificate_key /etc/letsencrypt/live/coolshell.cn/privkey.pem; # managed by Certbot`
-`include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot`
-
+```
+listen 443 ssl; # managed by Certbot
+ssl_certificate /etc/letsencrypt/live/coolshell.cn/fullchain.pem; # managed by Certbot
+ssl_certificate_key /etc/letsencrypt/live/coolshell.cn/privkey.pem; # managed by Certbot
+include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+```  
 和  
-
-`# Redirect non-https traffic to https `
-`if ($scheme != "https") {`
-`  return 301 https://$host$request_uri;`
-`} # managed by Certbot `
-
+```
+# Redirect non-https traffic to https 
+if ($scheme != "https") {
+  return 301 https://$host$request_uri;
+} # managed by Certbot 
+```  
 这里建议配置 http2，这要求 Nginx 版本要大于 1.9.5。HTTP2 具有更快的 HTTPS 传输性能，非常值得开启（关于性能你可以看一下这篇文章）。需要开启HTTP/2其实很简单，只需要在 nginx.conf 的 listen 443 ssl; 后面加上 http2 就好了。如下所示：  
 ```
 listen 443 ssl http2; # managed by Certbot 
