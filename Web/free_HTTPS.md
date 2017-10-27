@@ -1,4 +1,4 @@
-# 如何免费的让网站启用HTTPS[转]
+# 如何免费的让网站启用HTTPS[[转](https://coolshell.cn/articles/18094.html)]
 我用的是 [Let’s Encrypt](https://letsencrypt.org/)这个免费的解决方案。Let’s Encrypt 是一个于2015年推出的数字证书认证机构，将通过旨在消除当前手动创建和安装证书的复杂过程的自动化流程，为安全网站提供免费的SSL/TLS证书。这是由[互联网安全研究小组](https://letsencrypt.org/isrg/)（ISRG – Internet Security Research Group，一个公益组织）提供的服务。主要赞助商包括电子前哨基金会，Mozilla基金会，Akamai以及Cisco等公司（[赞助商列表](https://letsencrypt.org/sponsors/)）。  
 2015年6月，Let’s Encrypt得到了一个存储在硬件安全模块中的离线的RSA根证书。这个由IdenTrust证书签发机构交叉签名的根证书被用于签署两个证书。其中一个就是用于签发请求的证书，另一个则是保存在本地的证书，这个证书用于在上一个证书出问题时作备份证书之用。因为IdenTrust的CA根证书目前已被预置于主流浏览器中，所以Let’s Encrypt签发的证书可以从项目开始就被识别并接受，甚至当用户的浏览器中没有信任ISRG的根证书时也可以。  
 为你的网站来安装一个证书十分简单，只需要使用电子子前哨基金会EFF的 pCertbot](https://certbot.eff.org/)，就可以完成。
@@ -61,10 +61,14 @@ include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 /path/to/command – 计划执行的脚本或命令的名称
 ```
 这么方便的同时，我不禁要问，如果是一些恶意的钓鱼网站也让自己的站点变成https的，这个对于一般用来说就有点难以防范了。哎……  
+
 当然，在nginx或apache上启用HTTPS后，还没有结束。因为你可能还需要修改一下你的网站，不然你的网站在浏览时会出现各种问题。  
+
 启用HTTPS后，你的网页中的所有的使用 http:// 的方式的地方都要改成 https:// 不然你的图片，js， css等非https的连接都会导致浏览器抱怨不安全而被block掉。所以，你还需要修改你的网页中那些 hard code http:// 的地方。  
+
 对于我这个使用wordpress的博客系统来说，有这么几个部分需要做修改。  
 * 首先是 wordpress的 常规设置中的 “WordPress 地址” 和 “站点地址” 需要变更为 https 的方式。
 * 然后是文章内的图片等资源的链接需要变更为 https 的方式。对此，你可以使用一个叫 “Search Regex” 插件来批量更新你历史文章里的图片或别的资源的链接。比如：把 http://coolshell.cn 替换成了 https://coolshell.cn
 * 如果你像我一样启用了文章缓存（我用的是WP-SuperCache插件），你还要去设置一下 “CDN” 页面中的 “Site URL” 和 “off-site URL” 确保生成出来的静态网页内是用https做资源链接的。  
+
 基本上就是这些事。希望大家都来把自己的网站更新成 https 的。
