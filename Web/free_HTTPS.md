@@ -1,7 +1,10 @@
 # 如何免费的让网站启用HTTPS[[转](https://coolshell.cn/articles/18094.html)]
 我用的是 [Let’s Encrypt](https://letsencrypt.org/)这个免费的解决方案。Let’s Encrypt 是一个于2015年推出的数字证书认证机构，将通过旨在消除当前手动创建和安装证书的复杂过程的自动化流程，为安全网站提供免费的SSL/TLS证书。这是由[互联网安全研究小组](https://letsencrypt.org/isrg/)（ISRG – Internet Security Research Group，一个公益组织）提供的服务。主要赞助商包括电子前哨基金会，Mozilla基金会，Akamai以及Cisco等公司（[赞助商列表](https://letsencrypt.org/sponsors/)）。  
+  
 2015年6月，Let’s Encrypt得到了一个存储在硬件安全模块中的离线的RSA根证书。这个由IdenTrust证书签发机构交叉签名的根证书被用于签署两个证书。其中一个就是用于签发请求的证书，另一个则是保存在本地的证书，这个证书用于在上一个证书出问题时作备份证书之用。因为IdenTrust的CA根证书目前已被预置于主流浏览器中，所以Let’s Encrypt签发的证书可以从项目开始就被识别并接受，甚至当用户的浏览器中没有信任ISRG的根证书时也可以。  
-为你的网站来安装一个证书十分简单，只需要使用电子子前哨基金会EFF的 pCertbot](https://certbot.eff.org/)，就可以完成。
+  
+为你的网站来安装一个证书十分简单，只需要使用电子子前哨基金会EFF的 pCertbot](https://certbot.eff.org/)，就可以完成。  
+
 * 首先，打开 https://certbot.eff.org 网页。
 * 在那个机器上图标下面，你需要选择一下你用的 Web 接入软件 和你的 操作系统。比如，我选的，nginx 和 Ubuntu 14.04
 * 然后就会跳转到一个安装教程网页。你就照着做一遍就好了。  
@@ -59,7 +62,8 @@ include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 第5个字段：一周当中的某天 (0-7 [7 或 0 代表星期天])  
 ```
 /path/to/command – 计划执行的脚本或命令的名称
-```
+```  
+
 这么方便的同时，我不禁要问，如果是一些恶意的钓鱼网站也让自己的站点变成https的，这个对于一般用来说就有点难以防范了。哎……  
 
 当然，在nginx或apache上启用HTTPS后，还没有结束。因为你可能还需要修改一下你的网站，不然你的网站在浏览时会出现各种问题。  
