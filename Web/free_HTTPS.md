@@ -78,4 +78,6 @@ include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 * 然后是文章内的图片等资源的链接需要变更为 https 的方式。对此，你可以使用一个叫 “Search Regex” 插件来批量更新你历史文章里的图片或别的资源的链接。比如：把 http://coolshell.cn 替换成了 https://coolshell.cn
 * 如果你像我一样启用了文章缓存（我用的是WP-SuperCache插件），你还要去设置一下 “CDN” 页面中的 “Site URL” 和 “off-site URL” 确保生成出来的静态网页内是用https做资源链接的。  
 
-基本如此。希望大家都来把自己的网站更新成 https 的。
+基本如此。希望大家都来把自己的网站更新成 https 的。  
+  
+   [返回目录](https://github.com/MulticsYin/MulticsDevOps)
