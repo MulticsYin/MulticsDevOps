@@ -3,13 +3,13 @@
   
 2015年6月，Let’s Encrypt得到了一个存储在硬件安全模块中的离线的RSA根证书。这个由IdenTrust证书签发机构交叉签名的根证书被用于签署两个证书。其中一个就是用于签发请求的证书，另一个则是保存在本地的证书，这个证书用于在上一个证书出问题时作备份证书之用。因为IdenTrust的CA根证书目前已被预置于主流浏览器中，所以Let’s Encrypt签发的证书可以从项目开始就被识别并接受，甚至当用户的浏览器中没有信任ISRG的根证书时也可以。  
   
-为你的网站来安装一个证书十分简单，只需要使用电子子前哨基金会EFF的 pCertbot](https://certbot.eff.org/)，就可以完成。  
+为网站来安装一个证书十分简单，只需要使用电子子前哨基金会EFF的 pCertbot](https://certbot.eff.org/)，就可以完成。  
 
 * 首先，打开 https://certbot.eff.org 网页。
-* 在那个机器上图标下面，你需要选择一下你用的 Web 接入软件 和你的 操作系统。比如，我选的，nginx 和 Ubuntu 14.04
+* 在机器上图标下面，选择你使用的 Web 接入软件 和你的 操作系统。比如：nginx 和 Ubuntu 16.04
 * 然后就会跳转到一个安装教程网页。你就照着做一遍就好了。  
 
-__以Nginx + Ubuntu为例__
+__以Nginx + Ubuntu16.04为例__
 ### 首先先安装相应的环境:
 ```bash
 $ sudo apt-get update
@@ -23,6 +23,7 @@ $ sudo apt-get install python-certbot-nginx
 $ sudo certbot --nginx
 ```  
 `certbot` 会自动检查到你的 `nginx.conf` 下的配置，把你所有的虚拟站点都列出来，然后让你选择需要开启 https 的站点。你就简单的输入列表编号（用空格分开），然后，`certbot` 就帮你下载证书并更新 `nginx.conf` 了。  
+
 你打开你的 nginx.conf 文件 ，你可以发现你的文件中的 server 配置中可能被做了如下的修改：  
 ```
 listen 443 ssl; # managed by Certbot
@@ -45,6 +46,7 @@ ssl_certificate_key /etc/letsencrypt/live/coolshell.cn/privkey.pem; # managed by
 include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 ```  
 然后，就 nginx -s reload 就好了。  
+
 但是，Let’s Encrypt 的证书90天就过期了，所以，你还要设置上自动化的更新脚本，最容易的莫过于使用 crontab 了。使用 crontab -e 命令加入如下的定时作业（每个月都强制更新一下）：  
  ```
 0 0 1 * * /usr/bin/certbot renew --force-renewal
@@ -53,7 +55,8 @@ include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 当然，你也可以每天凌晨1点检查一下：  
 ```
 0 1 * * * certbot renew
-```
+```  
+
 注：crontab 中有六个字段，其含义如下：  
 第1个字段：分钟 (0-59)  
 第2个字段：小时 (0-23)  
@@ -75,4 +78,4 @@ include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 * 然后是文章内的图片等资源的链接需要变更为 https 的方式。对此，你可以使用一个叫 “Search Regex” 插件来批量更新你历史文章里的图片或别的资源的链接。比如：把 http://coolshell.cn 替换成了 https://coolshell.cn
 * 如果你像我一样启用了文章缓存（我用的是WP-SuperCache插件），你还要去设置一下 “CDN” 页面中的 “Site URL” 和 “off-site URL” 确保生成出来的静态网页内是用https做资源链接的。  
 
-基本上就是这些事。希望大家都来把自己的网站更新成 https 的。
+基本如此。希望大家都来把自己的网站更新成 https 的。
