@@ -1,6 +1,6 @@
 # 如何免费的让网站启用HTTPS[[转](https://coolshell.cn/articles/18094.html)]
 
-注：转载自[酷 壳 - CoolShell](https://coolshell.cn/)  
+注：**转载**自[酷 壳 - CoolShell](https://coolshell.cn/)  
 
 我用的是 [Let’s Encrypt](https://letsencrypt.org/)这个免费的解决方案。Let’s Encrypt 是一个于2015年推出的数字证书认证机构，将通过旨在消除当前手动创建和安装证书的复杂过程的自动化流程，为安全网站提供免费的SSL/TLS证书。这是由[互联网安全研究小组](https://letsencrypt.org/isrg/)（ISRG – Internet Security Research Group，一个公益组织）提供的服务。主要赞助商包括电子前哨基金会，Mozilla基金会，Akamai以及Cisco等公司（[赞助商列表](https://letsencrypt.org/sponsors/)）。  
 
