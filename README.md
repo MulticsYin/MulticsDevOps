@@ -15,7 +15,7 @@
 * [负载均衡层技术](http://blog.csdn.net/column/details/load-balancing.html)  
 主流负载均衡技术在HTTP系统中的应用，详细介绍了负载均衡系统涉及的主要设计思想，重点讲解了Nginx、LVS、Keepalived技术原理和使用方式。
 
-* [负载均衡层技术补充 - HAProxy](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/LoadBalancing.md)
+* [负载均衡层技术补充 - HAProxy](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/LoadBalancing.md)  
 HAProxy是基于TCP四层和HTTP七层的开源的第三方应用负载均衡软件。具有高可靠性、高稳定性、高并发处理能力、透明代理和支持ACL功能等特点。HAProxy是一个功能强大且优秀的负载均衡集群解决方案。
 
 * [Web系统的架构分层](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/WebSystem.md)
