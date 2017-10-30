@@ -1,6 +1,9 @@
 # 如何免费的让网站启用HTTPS[[转](https://coolshell.cn/articles/18094.html)]
+
+注：转载自[酷 壳 - CoolShell](https://coolshell.cn/)  
+
 我用的是 [Let’s Encrypt](https://letsencrypt.org/)这个免费的解决方案。Let’s Encrypt 是一个于2015年推出的数字证书认证机构，将通过旨在消除当前手动创建和安装证书的复杂过程的自动化流程，为安全网站提供免费的SSL/TLS证书。这是由[互联网安全研究小组](https://letsencrypt.org/isrg/)（ISRG – Internet Security Research Group，一个公益组织）提供的服务。主要赞助商包括电子前哨基金会，Mozilla基金会，Akamai以及Cisco等公司（[赞助商列表](https://letsencrypt.org/sponsors/)）。  
-  
+
 2015年6月，Let’s Encrypt得到了一个存储在硬件安全模块中的离线的RSA根证书。这个由IdenTrust证书签发机构交叉签名的根证书被用于签署两个证书。其中一个就是用于签发请求的证书，另一个则是保存在本地的证书，这个证书用于在上一个证书出问题时作备份证书之用。因为IdenTrust的CA根证书目前已被预置于主流浏览器中，所以Let’s Encrypt签发的证书可以从项目开始就被识别并接受，甚至当用户的浏览器中没有信任ISRG的根证书时也可以。  
   
 为网站来安装一个证书十分简单，只需要使用电子子前哨基金会EFF的 pCertbot](https://certbot.eff.org/)，就可以完成。  
