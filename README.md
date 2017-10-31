@@ -12,7 +12,7 @@
 * [如何免费的让网站启用HTTPS](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/free_HTTPS.md)[转]  
 使用 `Let’s Encrypt` 免费的解决方案。`Let’s Encrypt` 是一个于2015年推出的数字证书认证机构，将通过旨在消除当前手动创建和安装证书的复杂过程的自动化流程，为安全网站提供免费的SSL/TLS证书。  
 
-* [负载均衡层技术](http://blog.csdn.net/column/details/load-balancing.html)  
+* [负载均衡层技术](http://blog.csdn.net/column/details/load-balancing.html)（牛人CSDN博客链接）  
 主流负载均衡技术在HTTP系统中的应用，详细介绍了负载均衡系统涉及的主要设计思想，重点讲解了Nginx、LVS、Keepalived技术原理和使用方式。
 
 * [负载均衡层技术补充 - HAProxy](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/LoadBalancing.md)  
