@@ -24,5 +24,5 @@ HAProxy是基于TCP四层和HTTP七层的开源的第三方应用负载均衡软
 * [ZooKeeper](http://blog.csdn.net/column/details/14570.html)（CSDN博客链接）  
 ZooKeeper是源代码开放的分布式协调服务，由雅虎创建，是Google的开源实现。ZooKeeper是一个高性能的分布式数据一致性解决方案，他将那些复杂的、容易出错的分布式一致性服务封装起来，构成一个高效可靠的原语集，并提供一系列简单易用的接口给用户使用。  
 
-* [Kafka中文教程](http://www.orchome.com/kafka/index)  
+* [Kafka中文教程](http://www.orchome.com/kafka/index)（OrcHome链接）  
 Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写，它以可水平扩展和高吞吐率而被广泛使用。
