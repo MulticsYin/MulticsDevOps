@@ -12,7 +12,7 @@
 * [如何免费的让网站启用HTTPS](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/free_HTTPS.md)[转]  
 使用 `Let’s Encrypt` 免费的解决方案。`Let’s Encrypt` 是一个于2015年推出的数字证书认证机构，将通过旨在消除当前手动创建和安装证书的复杂过程的自动化流程，为安全网站提供免费的SSL/TLS证书。  
 
-* [负载均衡层技术](http://blog.csdn.net/column/details/load-balancing.html)（牛人CSDN博客链接）  
+* [负载均衡层技术](http://blog.csdn.net/column/details/load-balancing.html)（CSDN博客链接）  
 主流负载均衡技术在HTTP系统中的应用，详细介绍了负载均衡系统涉及的主要设计思想，重点讲解了Nginx、LVS、Keepalived技术原理和使用方式。
 
 * [负载均衡层技术(补充) - HAProxy](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/LoadBalancing.md)  
@@ -21,5 +21,5 @@ HAProxy是基于TCP四层和HTTP七层的开源的第三方应用负载均衡软
 * [Web系统的架构分层](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/WebSystem.md)
 
 ### 分布式系统相关组件
-* [ZooKeeper](http://blog.csdn.net/column/details/14570.html)  
+* [ZooKeeper](http://blog.csdn.net/column/details/14570.html)（CSDN博客链接）  
 ZooKeeper是源代码开放的分布式协调服务，由雅虎创建，是Google的开源实现。ZooKeeper是一个高性能的分布式数据一致性解决方案，他将那些复杂的、容易出错的分布式一致性服务封装起来，构成一个高效可靠的原语集，并提供一系列简单易用的接口给用户使用。
