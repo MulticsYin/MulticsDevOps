@@ -37,5 +37,5 @@ Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写�
 为了适应架构的变化、需求的变化，auth权限模块被单独出来作为一个基础的微服务系统，为其他业务service提供服务。
 
 ### 运维相关
-* [Shell](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/shell.md#综合案例)  
+* [Shell 编程](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/shell.md#综合案例)  
 Shell脚本入门指南
