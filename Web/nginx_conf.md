@@ -1,5 +1,6 @@
 # Nginx配置文件nginx.conf详解
 
+```
 #定义Nginx运行的用户和用户组
 user www www;
 
@@ -144,3 +145,4 @@ server
     { expires 1h; }
 }
 }
+```
