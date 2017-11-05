@@ -32,6 +32,10 @@
 int main() {
     /*将结合体的整型值赋值为1，如果是小字节序，小端有效，低地址写入的就是1，读出字符ch就是1 
       如果是大字节序，大端有效，低地址写入的就是0，读出字符ch就是0*/
+    union {
+        int i;
+        char ch;
+    }data;
     data.i = 1;
     if(data.ch) {
         printf("this system is  small-endian\n");
