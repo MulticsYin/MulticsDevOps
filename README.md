@@ -51,3 +51,9 @@ Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写�
 ### 运维相关
 * [Shell 编程](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/shell.md#综合案例)  
 Shell脚本入门指南
+
+
+## License
+
+MulticsDevOps source code is licensed under the 
+[Apache Licence, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
