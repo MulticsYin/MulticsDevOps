@@ -52,6 +52,10 @@ Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写�
 * [Shell 编程](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/shell.md#综合案例)  
 Shell脚本入门指南
 
+### vim
+* [vim配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Vim/vimCongig.md)  
+Vim 是我目前最喜欢的代码编辑工具，共享下我的Vim配置，有效果图，欢迎提建议。
+
 
 ## License
 
