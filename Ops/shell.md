@@ -2,16 +2,16 @@
 ## 什么是Shell脚本
 ### 示例
 看个例子吧：
+```bash
+#!/bin/sh
+cd ~
+mkdir shell_tut
+cd shell_tut
 
-	#!/bin/sh
-	cd ~
-	mkdir shell_tut
-	cd shell_tut
-	
-	for ((i=0; i<10; i++)); do
-		touch test_$i.txt
-	done
-
+for ((i=0; i<10; i++)); do
+	touch test_$i.txt
+done
+```
 ### 示例解释
 
 - 第1行：指定脚本解释器，这里是用/bin/sh做解释器的
@@ -445,22 +445,16 @@ case的语法和C family语言差别很大，它需要一个esac（就是case反
 ## 常用的命令
 sh脚本结合系统命令便有了强大的威力，在字符处理领域，有grep、awk、sed三剑客，grep负责找出特定的行，awk能将行拆分成多个字段，sed则可以实现更新插入删除等写操作。
 
-### ps
+* ps
 查看进程列表
-
-### grep
-#### 排除grep自身
-#### 查找与target相邻的结果
-
-### awk
-
-### sed
-#### 插入
-#### 替换
-#### 删除
-
-### xargs
-### curl
+* grep  
+排除grep自身  
+查找与target相邻的结果  
+* awk  
+* sed  
+插入, 替换, 删除  
+* xargs  
+* curl
 
 ## 综合案例
 
