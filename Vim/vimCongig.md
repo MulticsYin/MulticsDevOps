@@ -1,8 +1,8 @@
-# 我的vim配置
+# vim配置
 
-[配置文件](https://github.com/MulticsYin/MulticsDevOps/blob/master/Configuration_file/vimrc)  
+[配置文件地址](https://github.com/MulticsYin/MulticsDevOps/blob/master/Configuration_file/vimrc)  
 
-图片仅仅为演示所用，相信现实中不会有人这么写代码吧？
+图片仅仅为演示所用，相信现实中不会有人留这么多空格吧？
 
 如图：  
 ![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/sereen00.png)
@@ -106,5 +106,7 @@
 | :line**d** | 删除指定行 |
 | :line,line**d** | 删除指定范围内的行 |
 
+__参考:__  
+* [legolas-vim](https://github.com/TTWShell/legolas-vim)
 
 ## [返回目录](https://github.com/MulticsYin/MulticsDevOps)
