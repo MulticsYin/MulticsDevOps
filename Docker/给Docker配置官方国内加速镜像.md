@@ -24,6 +24,7 @@ $ docker --registry-mirror=https://registry.docker-cn.com daemon
 ```
 ### 二、配置系统文件(强烈推荐)
 __使用 `upstart` 系统 --> Ubuntu 14.04、Debian 7 Wheezy__  
+
 编辑 /etc/default/docker 文件，在其中的 DOCKER_OPTS 中添加获得的加速器配置 --registry-mirror=<加速器地址>，如：
 ```
 DOCKER_OPTS="--registry-mirror=https://registry.docker-cn.com"
@@ -31,8 +32,10 @@ DOCKER_OPTS="--registry-mirror=https://registry.docker-cn.com"
 重新启动服务。  
 ```
 $ sudo service docker restart
-```
-__使用 `systemd` 的系统 --> Ubuntu 16.04、Debian 8 Jessie、CentOS 7 __  
+```  
+
+__使用 `systemd` 的系统 --> Ubuntu 16.04、Debian 8 Jessie、CentOS 7__  
+
 用 systemctl enable docker 启用服务后，编辑 `/etc/systemd/system/multi-user.target.wants/docker.service` 文件，找到 ExecStart= 这一行，在这行最后添加加速器地址 --registry-mirror=<加速器地址>，如：
 ```
 ExecStart=/usr/bin/dockerd --registry-mirror=https://registry.docker-cn.com
