@@ -17,7 +17,7 @@ $ sudo apt-get install git git-core
 ##### 1.2 安装 Gitosis
 ```bash
 $ sudo apt-get install python-setuptools
-$ mkdir ~/git; cd ~/git; git clone https://github.com/res0nat0r/gitosis.git
+$ mkdir ~/.git; cd ~/.git; git clone https://github.com/res0nat0r/gitosis.git
 $ cd gitosis; sudo python setup.py install
 ```
 ##### 1.3 安装 openssh服务器
@@ -32,7 +32,7 @@ $ sudo passwd git
 ##### 1.5 上传公钥(如果没有，用 ssh-keygen -t rsa 生成)到Git服务器
 本地客户端操作
 ```bash
-$ scp .ssh/id_rsa.pub git@YOUR_SERVER:/home/git（YOUR_SERVER换成你服务器IP或域名）
+$ scp .ssh/id_rsa.pub git@YOUR_SERVER_IP:/home/git（YOUR_SERVER换成你服务器IP或域名）
 ```
 Git服务器操作
 ```bash
@@ -42,7 +42,7 @@ $ sudo chmod 755 /home/git/repositories/gitosis-admin.git/hooks/post-update
 #### 2. 配置
 ##### 2.1 修改配置文件
 ```bash
-$ git clone git@YOUR_SERVER:gitosis-admin.git
+$ git clone git@YOUR_SERVER_IP:gitosis-admin.git
 ```
 成功后，在本地将有一个gitosis-admin目录，里面有gitosis.conf，keydir。  
 ##### 2.2 编辑gitosis.conf，添加如下内容
@@ -67,7 +67,7 @@ $ git init --bare GROUP_PROJECY
 ###### 2.5.1 scp获取成员公钥，拷贝到keydir文件夹: 
 ```bash
 $ cp ~/.ssh/id_rsa.pub ~/.ssh/GROUP_MEMBERS.pub (GROUP_MEMBERS为项目成员，注意要与“keydir”目录下私钥名称一致，参见默认设置)
-$ scp ~/.ssh/id_rsa.pub git@YOUR_SERVER:/home/git（YOUR_SERVER换成你服务器IP或域名）
+$ scp ~/.ssh/id_rsa.pub git@YOUR_SERVER_IP:/home/git（YOUR_SERVER换成你服务器IP或域名）
 $ cd gitosis-admin 
 $ cp ~/.ssh/GROUP_MEMBERS.pub keydir/ 
 $ git add keydir/GROUP_MEMBERS.pub
@@ -86,7 +86,7 @@ $ git push
 ```
 ###### 2.5.4 这样，其它成员就可以获取代码了
 ```bash
-$ git clone git@YOUR_SERVER:GROUP_PROJECY.git
+$ git clone git@YOUR_SERVER_IP:GROUP_PROJECY.git
 ```
 #### 3. 远程拷贝文件:
 ##### 3.1. 从本地服务器复制到远程服务器
