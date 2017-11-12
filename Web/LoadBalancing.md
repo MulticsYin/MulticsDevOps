@@ -185,10 +185,14 @@ server s2 jizhihuwai.com:443 crt /etc/haproxy/server.pem
 `server.crt`一般是CA机构给颁发的，而`server.key`是你自己生成的private key。
 
 
+
+
 参考博客：  
 * [HAProxy负载均衡与keepalived搭建高可用负载均衡web（Nginx/PHP/Tomcat）集群](http://7424593.blog.51cto.com/7414593/1764640)
 * [高负载均衡学习haproxy之安装与配置](https://www.ilanni.com/?p=9987)  
 * [HAProxy文档（英文-1.7.9版）](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html)  
 * [生成自签名SSL证书](https://github.com/chenzhiwei/linux/tree/master/ssl-cert)
+
+
 
 ## [返回目录](https://github.com/MulticsYin/MulticsDevOps)
