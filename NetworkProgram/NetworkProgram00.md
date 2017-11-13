@@ -13,7 +13,7 @@
 
 掌握高性能网络编程，涉及到对网络、操作系统协议栈、进程与线程、常见的网络组件等知识点，需要有丰富的项目开发经验，能够权衡服务器运行效率与项目开发效率。以下图来谈谈我个人对高性能网络编程的理解。  
 
-![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP00.jpg)
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP01.jpg)
 
 上面这张图中，由上至下有以下特点：  
 * 关注点，逐渐由特定业务向通用技术转移
@@ -25,8 +25,6 @@
 * 稳定性越来越高，bug率越来越少  
 
 在做应用层的网络编程时，若服务器吞吐量大，则应该适度了解以上各层的关注点。  
-
-![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP01.jpg)
 
 如上图红色文字所示，我认为编写高性能服务器的关注点有3个：  
 
