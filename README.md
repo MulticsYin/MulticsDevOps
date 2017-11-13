@@ -8,7 +8,7 @@
 * [高性能网络编程](http://taohui.pub/?cat=9)[陶辉笔记]  
 掌握高性能网络编程，涉及到对网络、操作系统协议栈、进程与线程、常见的网络组件等知识点，需要有丰富的项目开发经验，能够权衡服务器运行效率与项目开发效率。 
 
-* [高性能网络编程（一）—-ACCEPT建立连接](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram00.md#高性能网络编程一-accept建立连接)  
+* [高性能网络编程（一）—-ACCEPT建立连接](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram00.md#高性能网络编程一-accept建立连接)  
 高性能网络编程系列文章前言，以及阐述`ACCEPT建立连接`，为后文打下基础。
 
 * [大小字节序理解和鉴定系统字节序方法](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/site.md)[转]  
