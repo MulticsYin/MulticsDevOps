@@ -76,13 +76,13 @@ static inline long sock_sndtimeo(const struct sock *sk, int noblock)
 }
 ```  
 也就是说，当这个套接字是阻塞套接字时，timeo就是SO_SNDTIMEO选项指定的发送超时时间。如果这个套接字是非阻塞套接字， timeo变量就会是0。  
-
 实际上，sk_stream_wait_memory对于非阻塞套接字会直接返回，并将 errno错误码置为EAGAIN。  
 （6）在图1的例子中，我们假定使用了阻塞套接字，且等待了足够久的时间，收到了对方的ACK，滑动窗口释放出了缓存。  
 （7）将剩下的用户态数据都组成MSS报文拷贝到内核态的sk_buff中。  
 （8）最后，调用tcp_push等方法，它最终会调用IP层的方法来发送tcp_write_queue队列中的报文。  
 注意，IP层返回时，并不一定是把报文发送了出去。  
 （9）（10）发送方法返回。  
+
 从图1的10个步骤中可知，无论是使用阻塞还是非阻塞套接字，发送方法成功返回时（无论全部成功或者部分成功），既不代表TCP连接的另一端主机接收到了消息，也不代表本机把消息发送到了网络上，只是说明，内核将会试图保证把消息送达对方。  
 
 3、Nagle算法、滑动窗口、拥塞窗口对发送方法的影响  
@@ -125,10 +125,10 @@ static inline unsigned int tcp_cwnd_test(struct tcp_sock *tp, struct sk_buff *sk
     if (TCP_SKB_CB(skb)->flags & TCPCB_FLAG_FIN)  
         return 1;  
   
-        //飞行中的数据，也就是没有ACK的字节总数  
+    //飞行中的数据，也就是没有ACK的字节总数  
     in_flight = tcp_packets_in_flight(tp);  
     cwnd = tp->snd_cwnd;  
-        //如果拥塞窗口允许，需要返回依据拥塞窗口的大小，还能发送多少字节的数据  
+    //如果拥塞窗口允许，需要返回依据拥塞窗口的大小，还能发送多少字节的数据  
     if (in_flight < cwnd)  
         return (cwnd - in_flight);  
   
@@ -153,8 +153,7 @@ Nagle算法的初衷是这样的：应用进程调用发送方法时，可能每
 Nagle算法要求一个TCP连接上最多只能有一个发送出去还没被确认的小分组，在该分组的确认到达之前不能发送其他的小分组。  
 内核中是通过 tcp_nagle_test方法实现该算法的。我们简单的看下：  
 ```C
-static inline int tcp_nagle_test(struct tcp_sock *tp, struct sk_buff *skb,  
-                 unsigned int cur_mss, int nonagle)  
+static inline int tcp_nagle_test(struct tcp_sock *tp, struct sk_buff *skb, unsigned int cur_mss, int nonagle)  
 {  
     //nonagle标志位设置了，返回1表示允许这个分组发送出去  
     if (nonagle & TCP_NAGLE_PUSH)  
@@ -174,9 +173,7 @@ static inline int tcp_nagle_test(struct tcp_sock *tp, struct sk_buff *skb,
 ```
 再来看看tcp_nagle_check方法，它与上一个方法不同，返回0表示可以发送，返回非0则不可以，正好相反。  
 ```C
-static inline int tcp_nagle_check(const struct tcp_sock *tp,  
-                  const struct sk_buff *skb,   
-                  unsigned mss_now, int nonagle)  
+static inline int tcp_nagle_check(const struct tcp_sock *tp, const struct sk_buff *skb, unsigned mss_now, int nonagle)  
 {  
         //先检查是否为小分组，即报文长度是否小于MSS  
     return (skb->len < mss_now &&  
@@ -200,8 +197,7 @@ static inline int tcp_minshall_check(const struct tcp_sock *tp)
 ```  
 想象一种场景，当对请求的时延非常在意且网络环境非常好的时候（例如同一个机房内），Nagle算法可以关闭，这实在也没必要。使用TCP_NODELAY套接字选项就可以关闭Nagle算法。看看setsockopt是怎么与上述方法配合工作的：  
 ```C
-static int do_tcp_setsockopt(struct sock *sk, int level,  
-        int optname, char __user *optval, int optlen)  
+static int do_tcp_setsockopt(struct sock *sk, int level, int optname, char __user *optval, int optlen)  
         ...  
     switch (optname) {  
         ...  
@@ -220,6 +216,7 @@ static int do_tcp_setsockopt(struct sock *sk, int level,
 可以看到，nonagle标志位就是这么更改的。  
 
 当然，调用了IP层的方法返回后，也未必就保证此时数据一定发送到网络中去了。  
+
 下一篇我们探讨如何接收TCP消息，以及接收到ack后内核做了些什么。  
 
-[返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
+## [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
