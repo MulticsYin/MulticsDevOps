@@ -90,7 +90,7 @@ static inline long sock_sndtimeo(const struct sock *sk, int noblock)
 3、Nagle算法、滑动窗口、拥塞窗口对发送方法的影响  
 图1第8步tcp_push方法做了些什么呢？先来看看主要的流程：  
 
-![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP10.jpg)  
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP11.jpg)  
 图3 发送TCP消息的简易流程  
 下面简单看看这几个概念：  
 （1）滑动窗口  
