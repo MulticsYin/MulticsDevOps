@@ -109,4 +109,4 @@
 __参考:__  
 * [legolas-vim](https://github.com/TTWShell/legolas-vim)
 
-## [返回目录](https://github.com/MulticsYin/MulticsDevOps)
+## [返回目录](https://github.com/MulticsYin/MulticsDevOps#vim)
