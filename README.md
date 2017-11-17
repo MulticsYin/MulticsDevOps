@@ -63,7 +63,7 @@ Shell脚本入门指南
 
 ### vim
 * [vim配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Vim/vimCongig.md)  
-Vim 是我目前最喜欢的代码编辑工具，共享下我的Vim配置，有效果图，欢迎提建议。
+Vim 是我最喜欢的代码编辑工具，共享下我的Vim配置，有效果图，欢迎提建议。
 
 
 
