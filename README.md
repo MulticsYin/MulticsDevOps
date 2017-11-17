@@ -49,7 +49,7 @@ ZooKeeper是源代码开放的分布式协调服务，由雅虎创建，是Googl
 Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写，它以可水平扩展和高吞吐率而被广泛使用。  
 
 ### 微服务 - Micro service
-* [OAuth2.0 鉴权机制](https://github.com/MulticsYin/MulticsDevOps/blob/master/MicroService/OAuth2.0.md)  
+* [OAuth2.0 鉴权机制](https://github.com/MulticsYin/MulticsDevOps/blob/master/MicroService/OAuth2.0.md#oauth20-鉴权机制)  
 OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（authorization layer）。"客户端"不能直接登录"服务提供商"，只能登录授权层，以此将用户与客户端区分开来。"客户端"登录授权层所用的令牌（token），与用户的密码不同。用户可以在登录的时候，指定授权层令牌的权限范围和有效期。  
 
 * [认证鉴权与API权限控制在微服务架构中的设计与实现](http://blueskykong.com/categories/Security/)(转载)  
