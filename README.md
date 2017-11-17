@@ -62,7 +62,7 @@ OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（autho
 Shell脚本入门指南
 
 ### vim
-* [vim配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Vim/vimCongig.md)  
+* [vim配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Vim/vimCongig.md#vim配置)  
 Vim 是我最喜欢的代码编辑工具，共享下我的Vim配置，有效果图，欢迎提建议。
 
 
