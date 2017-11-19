@@ -30,7 +30,8 @@ OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（autho
      |        |                               |     Server    |
      |        |<-(F)--- Protected Resource ---|               |
      +--------+                               +---------------+
-
+              
+              Figure 1: Abstract Protocol Flow
 ```  
 （A）用户打开客户端以后，客户端要求用户给予授权。  
 （B）用户同意给予客户端授权。  
