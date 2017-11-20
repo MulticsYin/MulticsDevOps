@@ -1,5 +1,7 @@
 # 高性能网络编程3—-TCP消息的接收
 
+转载自 [陶辉笔记](http://taohui.pub/?p=100)
+
 这篇文章将试图说明应用程序如何接收网络上发送过来的TCP消息流，由于篇幅所限，暂时忽略ACK报文的回复和接收窗口的滑动。  
 
 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读：  
@@ -167,7 +169,7 @@ queue_and_out:
 }  
 ```
 图1第4步时，正是通过tcp_ofo_queue方法把之前乱序的S3-S4报文插入receive队列的。  
-```
+```c
 static void tcp_ofo_queue(struct sock *sk)  
 {  
     struct tcp_sock *tp = tcp_sk(sk);  
@@ -353,7 +355,7 @@ int sk_wait_data(struct sock *sk, long *timeo)
 }  
 ```
 sk_wait_event也值得我们简单看下：  
-```
+```c
 #define sk_wait_event(__sk, __timeo, __condition)       \  
 ({  int rc;                         \  
     release_sock(__sk);                 \  
@@ -464,3 +466,6 @@ static void __release_sock(struct sock *sk)
 * 15、返回用户已经复制的字节数S4-S1。  
 
 好了，这3个场景读完，想必大家对于TCP的接收流程是怎样的已经非常清楚了，本文起始的6个问题也在这一大篇中都涉及到了。下一篇我们来讨论TCP连接的关闭。  
+
+
+## [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
