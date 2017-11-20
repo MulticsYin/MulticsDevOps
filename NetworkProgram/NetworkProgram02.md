@@ -114,8 +114,10 @@ int tcp_v4_do_rcv(struct sock *sk, struct sk_buff *skb)
     }  
         ... ...  
 ｝  
-tcp_rcv_established方法在图1里，主要调用tcp_data_queue方法将报文放入队列中，继续看看它又干了些什么事：
+```
+tcp_rcv_established方法在图1里，主要调用tcp_data_queue方法将报文放入队列中，继续看看它又干了些什么事：  
 
+```c
 static void tcp_data_queue(struct sock *sk, struct sk_buff *skb)  
 {  
     struct tcp_sock *tp = tcp_sk(sk);  
@@ -333,11 +335,11 @@ do_prequeue:
 
 简单描述上述11个步骤：  
 
-1、用户进程分配了一块len大小的内存，将其传入recv这样的函数，同时socket参数皆为默认，即阻塞的、SO_RCVLOWAT为1。调用接收方法，其中flags参数为0。  
-2、C库和内核最终调用到tcp_recvmsg方法来处理。  
+* 1、用户进程分配了一块len大小的内存，将其传入recv这样的函数，同时socket参数皆为默认，即阻塞的、SO_RCVLOWAT为1。调用接收方法，其中flags参数为0。  
+* 2、C库和内核最终调用到tcp_recvmsg方法来处理。  
 
-3、锁住socket。  
-4、由于此时receive、prequeue、backlog队列都是空的，即没有拷贝1个字节的消息到用户内存中，而我们的最低要求是拷贝至少SO_RCVLOWAT为1长度的消息。此时，开始进入阻塞式套接字的等待流程。最长等待时间为SO_RCVTIMEO指定的时间。  
+* 3、锁住socket。  
+* 4、由于此时receive、prequeue、backlog队列都是空的，即没有拷贝1个字节的消息到用户内存中，而我们的最低要求是拷贝至少SO_RCVLOWAT为1长度的消息。此时，开始进入阻塞式套接字的等待流程。最长等待时间为SO_RCVTIMEO指定的时间。  
 
 这个等待函数叫做sk_wait_data，有必要看下其实现：  
 ```c
@@ -363,36 +365,36 @@ sk_wait_event也值得我们简单看下：
 ```  
 注意，它在睡眠前会调用release_sock，这个方法会释放socket锁，使得下面的第5步中，新到的报文不再只能进入backlog队列。  
 
-5、这个套接字上期望接收的序号也是S1，此时网卡恰好收到了S1-S2的报文，在tcp_v4_rcv方法中，通过调用tcp_prequeue方法把报文插入到prequeue队列中。  
-6、插入prequeue队列后，此时会接着调用wake_up_interruptible方法，唤醒在socket上睡眠的进程。参见tcp_prequque方法。  
+* 5、这个套接字上期望接收的序号也是S1，此时网卡恰好收到了S1-S2的报文，在tcp_v4_rcv方法中，通过调用tcp_prequeue方法把报文插入到prequeue队列中。  
+* 6、插入prequeue队列后，此时会接着调用wake_up_interruptible方法，唤醒在socket上睡眠的进程。参见tcp_prequque方法。  
 
-7、用户进程被唤醒后，重新调用lock_sock接管了这个socket，此后再进来的报文都只能进入backlog队列了。  
+* 7、用户进程被唤醒后，重新调用lock_sock接管了这个socket，此后再进来的报文都只能进入backlog队列了。  
 
-8、进程醒来后，先去检查receive队列，当然仍然是空的；再去检查prequeue队列，发现有一个报文S1-S2，正好是socket连接待拷贝的起始序号S1，于是，从prequeue队列中取出这个报文并把内容复制到用户内存中，再释放内核中的这个报文。  
+* 8、进程醒来后，先去检查receive队列，当然仍然是空的；再去检查prequeue队列，发现有一个报文S1-S2，正好是socket连接待拷贝的起始序号S1，于是，从prequeue队列中取出这个报文并把内容复制到用户内存中，再释放内核中的这个报文。  
 
-9、目前已经拷贝了S2-S1个字节到用户态，检查这个长度是否超过了最低阀值（即len和SO_RCVLOWAT的最小值）。  
+* 9、目前已经拷贝了S2-S1个字节到用户态，检查这个长度是否超过了最低阀值（即len和SO_RCVLOWAT的最小值）。  
 
-10、由于SO_RCVLOWAT使用了默认的1，所以准备返回用户。此时会顺带再看看backlog队列中有没有数据，若有，则检查这个无序的队列中是否有可以直接拷贝给用户的报文。当然，此时是没有的。所以准备返回，释放socket锁。  
+* 10、由于SO_RCVLOWAT使用了默认的1，所以准备返回用户。此时会顺带再看看backlog队列中有没有数据，若有，则检查这个无序的队列中是否有可以直接拷贝给用户的报文。当然，此时是没有的。所以准备返回，释放socket锁。  
 
-11、返回用户已经拷贝的字节数。  
+* 11、返回用户已经拷贝的字节数。  
 
 图3给出了第3种场景。这个场景中，我们把系统参数tcp_low_latency设为1，socket上设置了SO_RCVLOWAT属性的值。服务器先是收到了S1-S2这个报文，但S2-S1的长度是小于SO_RCVLOWAT的，用户进程调用recv方法读套接字时，虽然读到了一些，但没有达到最小阀值，所以进程睡眠了，与此同时，在睡眠前收到的乱序的S3-S4包直接进入backlog队列。此时先到达了S2-S3包，由于没有使用prequeue队列，而它起始序号正是下一个待拷贝的值，所以直接拷贝到用户内存中，总共拷贝字节数已满足SO_RCVLOWAT的要求！最后在返回用户前把backlog队列中S3-S4报文也拷贝给用户了。如下图：  
 
 简明描述上述15个步骤：  
 
-1、内核收到报文S1-S2，S1正是这个socket连接上待接收的序号，因此，直接将它插入有序的receive队列中。  
+* 1、内核收到报文S1-S2，S1正是这个socket连接上待接收的序号，因此，直接将它插入有序的receive队列中。  
 
-2、用户进程所处的linux操作系统上，将sysctl中的tcp_low_latency设置为1。这意味着，这台服务器希望TCP进程能够更及时的接收到TCP消息。用户调用了recv方法接收socket上的消息，这个socket上设置了SO_RCVLOWAT属性为某个值n，这个n是大于S2-S1，也就是第1步收到的报文大小。这里，仍然是阻塞socket，用户依然是分配了足够大的len长度内存以接收TCP消息。  
+* 2、用户进程所处的linux操作系统上，将sysctl中的tcp_low_latency设置为1。这意味着，这台服务器希望TCP进程能够更及时的接收到TCP消息。用户调用了recv方法接收socket上的消息，这个socket上设置了SO_RCVLOWAT属性为某个值n，这个n是大于S2-S1，也就是第1步收到的报文大小。这里，仍然是阻塞socket，用户依然是分配了足够大的len长度内存以接收TCP消息。  
 
-3、通过tcp_recvmsg方法来完成接收工作。先锁住socket，避免并发进程读取同一socket的同时，也在告诉内核网络软中断处理到这一socket时要有不同行为，如第6步。  
+* 3、通过tcp_recvmsg方法来完成接收工作。先锁住socket，避免并发进程读取同一socket的同时，也在告诉内核网络软中断处理到这一socket时要有不同行为，如第6步。  
 
-4、准备处理内核各个接收队列中的报文。  
+* 4、准备处理内核各个接收队列中的报文。  
 
-5、receive队列中的有序报文可直接拷贝，在检查到S2-S1是小于len之后，将报文内容拷贝到用户态内存中。  
+* 5、receive队列中的有序报文可直接拷贝，在检查到S2-S1是小于len之后，将报文内容拷贝到用户态内存中。  
 
-6、在第5步进行的同时，socket是被锁住的，这时内核又收到了一个S3-S4报文，因此报文直接进入backlog队列。注意，这个报文不是有序的，因为此时连接上期待接收序号为S2。  
+* 6、在第5步进行的同时，socket是被锁住的，这时内核又收到了一个S3-S4报文，因此报文直接进入backlog队列。注意，这个报文不是有序的，因为此时连接上期待接收序号为S2。  
 
-7、在第5步，拷贝了S2-S1个字节到用户内存，它是小于SO_RCVLOWAT的，因此，由于socket是阻塞型套接字（超时时间在本文中忽略），进程将不得不转入睡眠。转入睡眠之前，还会干一件事，就是处理backlog队列里的报文，图2的第4步介绍过休眠方法sk_wait_data，它在睡眠前会执行release_sock方法，看看是如何实现的：  
+* 7、在第5步，拷贝了S2-S1个字节到用户内存，它是小于SO_RCVLOWAT的，因此，由于socket是阻塞型套接字（超时时间在本文中忽略），进程将不得不转入睡眠。转入睡眠之前，还会干一件事，就是处理backlog队列里的报文，图2的第4步介绍过休眠方法sk_wait_data，它在睡眠前会执行release_sock方法，看看是如何实现的：  
 ```c
 void fastcall release_sock(struct sock *sk)  
 {  
@@ -409,7 +411,9 @@ void fastcall release_sock(struct sock *sk)
     spin_unlock_bh(&sk->sk_lock.slock);  
 }  
 ```  
+
 再看看__release_sock方法是如何遍历backlog队列的：  
+
 ```c
 static void __release_sock(struct sock *sk)  
 {  
@@ -438,20 +442,20 @@ static void __release_sock(struct sock *sk)
 ```  
 此时遍历到S3-S4报文，但因为它是失序的，所以从backlog队列中移入out_of_order队列中（参见上文说过的tcp_ofo_queue方法）。  
 
-8、进程休眠，直到超时或者receive队列不为空。  
+* 8、进程休眠，直到超时或者receive队列不为空。  
 
-9、内核接收到了S2-S3报文。注意，这里由于打开了tcp_low_latency标志位，这个报文是不会进入prequeue队列以待进程上下文处理的。  
+* 9、内核接收到了S2-S3报文。注意，这里由于打开了tcp_low_latency标志位，这个报文是不会进入prequeue队列以待进程上下文处理的。  
 
-10、此时，由于S2是连接上正要接收的序号，同时，有一个用户进程正在休眠等待接收数据中，且它要等待的数据起始序号正是S2，于是，这种种条件下，使得这一步同时也是网络软中断执行上下文中，把S2-S3报文直接拷贝进用户内存。  
+* 10、此时，由于S2是连接上正要接收的序号，同时，有一个用户进程正在休眠等待接收数据中，且它要等待的数据起始序号正是S2，于是，这种种条件下，使得这一步同时也是网络软中断执行上下文中，把S2-S3报文直接拷贝进用户内存。  
 
-11、上文介绍tcp_data_queue方法时大家可以看到，每处理完1个有序报文（无论是拷贝到receive队列还是直接复制到用户内存）后都会检查out_of_order队列，看看是否有报文可以处理。那么，S3-S4报文恰好是待处理的，于是拷贝进用户内存。然后唤醒用户进程。  
+* 11、上文介绍tcp_data_queue方法时大家可以看到，每处理完1个有序报文（无论是拷贝到receive队列还是直接复制到用户内存）后都会检查out_of_order队列，看看是否有报文可以处理。那么，S3-S4报文恰好是待处理的，于是拷贝进用户内存。然后唤醒用户进程。  
 
-12、用户进程被唤醒了，当然唤醒后会先来拿到socket锁。以下执行又在进程上下文中了。  
+* 12、用户进程被唤醒了，当然唤醒后会先来拿到socket锁。以下执行又在进程上下文中了。  
 
-13、此时会检查已拷贝的字节数是否大于SO_RCVLOWAT，以及backlog队列是否为空。两者皆满足，准备返回。  
+* 13、此时会检查已拷贝的字节数是否大于SO_RCVLOWAT，以及backlog队列是否为空。两者皆满足，准备返回。  
 
-14、释放socket锁，退出tcp_recvmsg方法。  
+* 14、释放socket锁，退出tcp_recvmsg方法。  
 
-15、返回用户已经复制的字节数S4-S1。  
+* 15、返回用户已经复制的字节数S4-S1。  
 
 好了，这3个场景读完，想必大家对于TCP的接收流程是怎样的已经非常清楚了，本文起始的6个问题也在这一大篇中都涉及到了。下一篇我们来讨论TCP连接的关闭。  
