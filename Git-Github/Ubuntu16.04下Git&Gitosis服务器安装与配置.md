@@ -107,4 +107,4 @@ $ scp -r local_folder remote_ip:remote_folder
 
 注: 从远程复制到本地的scp命令与上面的命令一样，只要将从本地复制到远程的命令后面2个参数互换顺序就行了。  
   
-## [返回目录](https://github.com/MulticsYin/MulticsDevOps)
+## [返回目录](https://github.com/MulticsYin/MulticsDevOps#gitgithub)

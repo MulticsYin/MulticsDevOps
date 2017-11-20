@@ -1,21 +1,24 @@
 # MulticsDevOps
 ## 服务部署笔记 & 学习笔记 & 源代码-使用教程。
 ### Docker&kubernetes
-* [给Docker配置官方国内加速镜像](https://github.com/MulticsYin/MulticsDevOps/blob/master/Docker/%E7%BB%99Docker%E9%85%8D%E7%BD%AE%E5%AE%98%E6%96%B9%E5%9B%BD%E5%86%85%E5%8A%A0%E9%80%9F%E9%95%9C%E5%83%8F.md)  
+* [给Docker配置官方国内加速镜像](https://github.com/MulticsYin/MulticsDevOps/blob/master/Docker/%E7%BB%99Docker%E9%85%8D%E7%BD%AE%E5%AE%98%E6%96%B9%E5%9B%BD%E5%86%85%E5%8A%A0%E9%80%9F%E9%95%9C%E5%83%8F.md#给docker配置官方国内加速镜像)  
 出于网路原因，国内访问 Docker Hub 有时会遇到困难，下载官方镜像更是望穿秋水。该教程解决这个问题，配置国内镜像加速器，为镜像下载加速。
 
 ### 网络编程
 * [高性能网络编程](http://taohui.pub/?cat=9)[陶辉笔记]  
 掌握高性能网络编程，涉及到对网络、操作系统协议栈、进程与线程、常见的网络组件等知识点，需要有丰富的项目开发经验，能够权衡服务器运行效率与项目开发效率。 
 
-* [高性能网络编程（一）—-ACCEPT建立连接](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram00.md#高性能网络编程一-accept建立连接)  
-高性能网络编程系列文章前言，以及阐述`ACCEPT建立连接`，为后文打下基础。
+* [高性能网络编程1—-ACCEPT建立连接](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram00.md#高性能网络编程一-accept建立连接)  
+高性能网络编程系列文章前言，以及阐述`ACCEPT建立连接`，为后文打下基础。  
 
-* [大小字节序理解和鉴定系统字节序方法](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/site.md)[转]  
+* [高性能网络编程2—-TCP消息的发送](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram01.md#高性能网络编程2-tcp消息的发送)  
+在上一篇中，我们已经建立好的TCP连接，对应着操作系统分配的1个套接字。操作TCP协议发送数据时，面对的是数据流。通常调用诸如send或者write方法来发送数据到另一台主机，那么，调用这样的方法时，在操作系统内核中发生了什么事情呢？我们带着以下3个问题来细细分析：发送方法成功返回时，能保证TCP另一端的主机接收到吗？能保证数据已经发送到网络上了吗？套接字为阻塞或者非阻塞时，发送方法做的事情有何不同？  
+
+* [大小字节序理解和鉴定系统字节序方法](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/site.md#大小字节序理解和鉴定系统字节序方法)[转]  
 计算机硬件有两种储存数据的方式：大端字节序（big endian）和小端字节序（little endian）。
 
 ### Git&GitHub
-* [Ubuntu16.04下Git&Gitosis服务器安装与配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Git-Github/Ubuntu16.04%E4%B8%8BGit&Gitosis%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.md)  
+* [Ubuntu16.04下Git&Gitosis服务器安装与配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Git-Github/Ubuntu16.04%E4%B8%8BGit&Gitosis%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.md#ubuntu1604下gitgitosis服务器安装与配置)  
 在实验室或者公司内部搭建一个局域网Git服务器(使用git和gitosis)。
 
 ### Web 相关
@@ -46,6 +49,9 @@ ZooKeeper是源代码开放的分布式协调服务，由雅虎创建，是Googl
 Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写，它以可水平扩展和高吞吐率而被广泛使用。  
 
 ### 微服务 - Micro service
+* [OAuth2.0 鉴权机制](https://github.com/MulticsYin/MulticsDevOps/blob/master/MicroService/OAuth2.0.md#oauth20-鉴权机制)  
+OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（authorization layer）。"客户端"不能直接登录"服务提供商"，只能登录授权层，以此将用户与客户端区分开来。"客户端"登录授权层所用的令牌（token），与用户的密码不同。用户可以在登录的时候，指定授权层令牌的权限范围和有效期。  
+
 * [认证鉴权与API权限控制在微服务架构中的设计与实现](http://blueskykong.com/categories/Security/)(转载)  
 系统微服务化后，原有的单体应用是基于Session的安全权限方式，不能满足现有的微服务架构的认证与鉴权需求。微服务架构下，一个应用会被拆分成若干个微应用，每个微应用都需要对访问进行鉴权，每个微应用都需要明确当前访问用户以及其权限。尤其当访问来源不只是浏览器，还包括其他服务的调用时，单体应用架构下的鉴权方式就不是特别合适了。在微服务架构下，要考虑外部应用接入的场景、用户–服务的鉴权、服务–服务的鉴权等多种鉴权场景。  
 比如用户A访问User Service，A如果未登录，则首先需要登录，请求获取授权token。获取token之后，A将携带着token去请求访问某个文件，这样就需要对A的身份进行校验，并且A可以访问该文件。  
@@ -56,8 +62,8 @@ Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写�
 Shell脚本入门指南
 
 ### vim
-* [vim配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Vim/vimCongig.md)  
-Vim 是我目前最喜欢的代码编辑工具，共享下我的Vim配置，有效果图，欢迎提建议。
+* [vim配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Vim/vimCongig.md#vim配置)  
+Vim 是我最喜欢的代码编辑工具，共享下我的Vim配置，有效果图，欢迎提建议。
 
 
 
