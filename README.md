@@ -14,6 +14,9 @@
 * [高性能网络编程2—-TCP消息的发送](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram01.md#高性能网络编程2-tcp消息的发送)  
 在上一篇中，我们已经建立好的TCP连接，对应着操作系统分配的1个套接字。操作TCP协议发送数据时，面对的是数据流。通常调用诸如send或者write方法来发送数据到另一台主机，那么，调用这样的方法时，在操作系统内核中发生了什么事情呢？我们带着以下3个问题来细细分析：发送方法成功返回时，能保证TCP另一端的主机接收到吗？能保证数据已经发送到网络上了吗？套接字为阻塞或者非阻塞时，发送方法做的事情有何不同？  
 
+* [高性能网络编程3—-TCP消息的接收](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram02.md#高性能网络编程3-tcp消息的接收)  
+这篇文章将试图说明应用程序如何接收网络上发送过来的TCP消息流，由于篇幅所限，暂时忽略ACK报文的回复和接收窗口的滑动。  
+
 * [大小字节序理解和鉴定系统字节序方法](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/site.md#大小字节序理解和鉴定系统字节序方法)[转]  
 计算机硬件有两种储存数据的方式：大端字节序（big endian）和小端字节序（little endian）。
 
