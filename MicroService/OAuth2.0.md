@@ -71,8 +71,37 @@ OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（autho
 
                Figure 2: Refreshing an Expired Access Token
 
-```
+The flow illustrated in Figure 2 includes the following steps:
 
+   (A)  The client requests an access token by authenticating with the
+        authorization server and presenting an authorization grant.
+
+   (B)  The authorization server authenticates the client and validates
+        the authorization grant, and if valid, issues an access token
+        and a refresh token.
+
+   (C)  The client makes a protected resource request to the resource
+        server by presenting the access token.
+
+   (D)  The resource server validates the access token, and if valid,
+        serves the request.
+
+   (E)  Steps (C) and (D) repeat until the access token expires.  If the
+        client knows the access token expired, it skips to step (G);
+        otherwise, it makes another protected resource request.
+
+   (F)  Since the access token is invalid, the resource server returns
+        an invalid token error.
+
+   (G)  The client requests a new access token by authenticating with
+        the authorization server and presenting the refresh token.  The
+        client authentication requirements are based on the client type
+        and on the authorization server policies.
+
+   (H)  The authorization server authenticates the client and validates
+        the refresh token, and if valid, issues a new access token (and,
+        optionally, a new refresh token).
+```
 ```
      +----------+
      | Resource |
@@ -105,6 +134,37 @@ OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（autho
 
                      Figure 3: Authorization Code Flow
 
+The flow illustrated in Figure 3 includes the following steps:
+
+   (A)  The client initiates the flow by directing the resource owner's
+        user-agent to the authorization endpoint.  The client includes
+        its client identifier, requested scope, local state, and a
+        redirection URI to which the authorization server will send the
+        user-agent back once access is granted (or denied).
+
+   (B)  The authorization server authenticates the resource owner (via
+        the user-agent) and establishes whether the resource owner
+        grants or denies the client's access request.
+
+   (C)  Assuming the resource owner grants access, the authorization
+        server redirects the user-agent back to the client using the
+        redirection URI provided earlier (in the request or during
+        client registration).  The redirection URI includes an
+        authorization code and any local state provided by the client
+        earlier.
+
+   (D)  The client requests an access token from the authorization
+        server's token endpoint by including the authorization code
+        received in the previous step.  When making the request, the
+        client authenticates with the authorization server.  The client
+        includes the redirection URI used to obtain the authorization
+        code for verification.
+
+   (E)  The authorization server authenticates the client, validates the
+        authorization code, and ensures that the redirection URI
+        received matches the URI used to redirect the client in
+        step (C).  If valid, the authorization server responds back with
+        an access token and, optionally, a refresh token.
 ```
 
 ```
@@ -146,6 +206,38 @@ OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（autho
 
                        Figure 4: Implicit Grant Flow
 
+The flow illustrated in Figure 4 includes the following steps:
+
+   (A)  The client initiates the flow by directing the resource owner's
+        user-agent to the authorization endpoint.  The client includes
+        its client identifier, requested scope, local state, and a
+        redirection URI to which the authorization server will send the
+        user-agent back once access is granted (or denied).
+
+   (B)  The authorization server authenticates the resource owner (via
+        the user-agent) and establishes whether the resource owner
+        grants or denies the client's access request.
+
+   (C)  Assuming the resource owner grants access, the authorization
+        server redirects the user-agent back to the client using the
+        redirection URI provided earlier.  The redirection URI includes
+        the access token in the URI fragment.
+
+   (D)  The user-agent follows the redirection instructions by making a
+        request to the web-hosted client resource (which does not
+        include the fragment per [RFC2616]).  The user-agent retains the
+        fragment information locally.
+
+   (E)  The web-hosted client resource returns a web page (typically an
+        HTML document with an embedded script) capable of accessing the
+        full redirection URI including the fragment retained by the
+        user-agent, and extracting the access token (and other
+        parameters) contained in the fragment.
+
+   (F)  The user-agent executes the script provided by the web-hosted
+        client resource locally, which extracts the access token.
+
+   (G)  The user-agent passes the access token to the client.
 ```
 
 ```
@@ -168,6 +260,20 @@ OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（autho
      +---------+                                  +---------------+
 
             Figure 5: Resource Owner Password Credentials Flow
+
+The flow illustrated in Figure 5 includes the following steps:
+
+   (A)  The resource owner provides the client with its username and
+        password.
+
+   (B)  The client requests an access token from the authorization
+        server's token endpoint by including the credentials received
+        from the resource owner.  When making the request, the client
+        authenticates with the authorization server.
+
+   (C)  The authorization server authenticates the client and validates
+        the resource owner credentials, and if valid, issues an access
+        token.
 ```
 
 ```
@@ -180,6 +286,13 @@ OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（autho
      +---------+                                  +---------------+
 
                      Figure 6: Client Credentials Flow
+The flow illustrated in Figure 6 includes the following steps:
+
+   (A)  The client authenticates with the authorization server and
+        requests an access token from the token endpoint.
+
+   (B)  The authorization server authenticates the client, and if valid,
+        issues an access token.
 ```
 
 __参考文档__  
