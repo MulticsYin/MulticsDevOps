@@ -47,6 +47,10 @@ OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（autho
 * 密码模式（resource owner password credentials）
 * 客户端模式（client credentials）
 
+
+## 各授权模式关系流程图
+
+### 1. Refreshing an Expired Access Token
 ```
   +--------+                                           +---------------+
   |        |--(A)------- Authorization Grant --------->|               |
@@ -102,6 +106,8 @@ The flow illustrated in Figure 2 includes the following steps:
         the refresh token, and if valid, issues a new access token (and,
         optionally, a new refresh token).
 ```
+
+### 2. Authorization Code Flow
 ```
      +----------+
      | Resource |
@@ -167,6 +173,7 @@ The flow illustrated in Figure 3 includes the following steps:
         an access token and, optionally, a refresh token.
 ```
 
+### 3. Implicit Grant Flow
 ```
      +----------+
      | Resource |
@@ -240,6 +247,7 @@ The flow illustrated in Figure 4 includes the following steps:
    (G)  The user-agent passes the access token to the client.
 ```
 
+### 4. Resource Owner Password Credentials Flow
 ```
      +----------+
      | Resource |
@@ -276,6 +284,7 @@ The flow illustrated in Figure 5 includes the following steps:
         token.
 ```
 
+### 5. Client Credentials Flow
 ```
      +---------+                                  +---------------+
      |         |                                  |               |
