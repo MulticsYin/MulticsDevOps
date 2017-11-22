@@ -29,6 +29,7 @@ __SYSCALL(__NR_shutdown, sys_shutdown)
 
 但sys_close和sys_shutdown这两个系统调用最终是由tcp_close和tcp_shutdown方法来实现的，调用过程如下图所示：  
 
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP40.jpeg)  
 
 sys_shutdown与多线程和多进程都没有任何关系，而sys_close则不然，上图中可以看到，层层封装调用中有一个方法叫fput，它有一个引用计数，记录这个socket被引用了多少次。在说明多线程或者多进程调用close的区别前，先在代码上简单看下close是怎么调用的，对内核代码没兴趣的同学可以仅看fput方法：  
 ```c
@@ -96,6 +97,8 @@ TCP双工的这个特性使得连接的正常关闭需要四次握手，其含�
 
 下图是close的主要流程：  
 
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP41.jpeg)  
+
 这个图稍复杂，这是因为它覆盖了关闭监听句柄、关闭普通连接、关闭设置了SO_LINGER的连接这三种主要场景。  
 
 1）关闭监听句柄  
@@ -133,6 +136,8 @@ so_linger用来保证对方收到了close时发出的消息，即，至少需要
 最后做个总结。调用close时，可能导致发送RST复位关闭连接，例如有未读消息、打开so_linger但l_linger却为0、关闭监听句柄时半打开的连接。更多时会导致发FIN来四次握手关闭连接，但打开so_linger可能导致close阻塞住等待着对方的ACK表明收到了消息。  
 
 最后来看看较为简单的shutdown。  
+
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP42.jpeg)  
 
 解释下上图：  
 
