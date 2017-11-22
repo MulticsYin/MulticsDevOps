@@ -49,7 +49,7 @@ void fastcall fput(struct file *file)
 大家知道，所谓线程其实就是“轻量级”的进程。创建进程只能是一个进程（父进程）创建另一个进程（子进程），子进程会复制父进程的资源，这里的”复制“针对不同的资源其意义是不同的，例如对内存、文件、TCP连接等。创建进程是由clone系统调用实现的，而创建线程时同样也是clone实现的，只不过clone的参数不同，其行为也很不同。这个话题是很大的，这里我们仅讨论下TCP连接。  
 
 在clone系统调用中，会调用方法copy_files来拷贝文件描述符（包括socket）。创建线程时，传入的flag参数中包含标志位CLONE_FILES，此时，线程将会共享父进程中的文件描述符。而创建进程时没有这个标志位，这时，会把进程打开的所有文件描述符的引用计数加1，即把file数据结构的f_count成员加1，如下：  
-```
+```c
 static int copy_files(unsigned long clone_flags, struct task_struct * tsk)  
 {  
     if (clone_flags & CLONE_FILES) {  
@@ -62,7 +62,7 @@ out:
 ```  
 
 再看看dup_fd方法：  
-```
+```c
 static struct files_struct *dup_fd(struct files_struct *oldf, int *errorp)  
 {  
     for (i = open_files; i != 0; i--) {  
@@ -75,7 +75,7 @@ static struct files_struct *dup_fd(struct files_struct *oldf, int *errorp)
 ```  
 
 get_file宏就会加引用计数。  
-```
+```c
 #define get_file(x) atomic_inc(&(x)->f_count)  
 ```  
 
