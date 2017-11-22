@@ -97,7 +97,7 @@ TCP双工的这个特性使得连接的正常关闭需要四次握手，其含�
 
 下图是close的主要流程：  
 
-![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP41.jpeg)  
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP41.jpg)  
 
 这个图稍复杂，这是因为它覆盖了关闭监听句柄、关闭普通连接、关闭设置了SO_LINGER的连接这三种主要场景。  
 
@@ -137,7 +137,7 @@ so_linger用来保证对方收到了close时发出的消息，即，至少需要
 
 最后来看看较为简单的shutdown。  
 
-![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP42.jpeg)  
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP42.jpg)  
 
 解释下上图：  
 
