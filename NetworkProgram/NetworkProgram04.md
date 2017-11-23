@@ -26,9 +26,25 @@
 
 看几个图。当并发连接为一千以下，select的执行次数不算频繁，与epoll似乎并无多少差距：  
 
-
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/site50.png)  
 
 然而，并发数一旦上去，select的缺点被“执行频繁”无限放大了，且并发数越多越明显：  
+
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/site51.png)  
+
+再来说说epoll是如何解决的。它很聪明的用了3个方法来实现select方法要做的事：  
+
+新建的epoll描述符==epoll_create()  
+
+epoll_ctrl(epoll描述符，添加或者删除所有待监控的连接)  
+
+返回的活跃连接 ==epoll_wait（ epoll描述符 ）  
+
+这么做的好处主要是：分清了频繁调用和不频繁调用的操作。例如，epoll_ctrl是不太频繁调用的，而epoll_wait是非常频繁调用的。这时，epoll_wait却几乎没有入参，这比select的效率高出一大截，而且，它也不会随着并发连接的增加使得入参越发多起来，导致内核执行效率下降。  
+
+epoll是怎么实现的呢？其实很简单，从这3个方法就可以看出，它比select聪明的避免了每次频繁调用“哪些连接已经处在消息准备好阶段”的 epoll_wait时，是不需要把所有待监控连接传入的。这意味着，它在内核态维护了一个数据结构保存着所有待监控的连接。这个数据结构就是一棵红黑树，它的结点的增加、减少是通过epoll_ctrl来完成的。用我在《深入理解Nginx》第8章中所画的图来看，它是非常简单的：  
+
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/site52.png)  
 
 图中左下方的红黑树由所有待监控的连接构成。左上方的链表，同是目前所有活跃的连接。于是，epoll_wait执行时只是检查左上方的链表，并返回左上方链表中的连接给用户。这样，epoll_wait的执行效率能不高吗？  
 
@@ -39,3 +55,6 @@
 于是，ET和LT模式就应运而生了。LT是每次满足期待状态的连接，都得在epoll_wait中返回，所以它一视同仁，都在一条水平线上。ET则不然，它倾向更精确的返回连接。在上面的例子中，连接第一次变为可写后，若是程序未向连接上写入任何数据，那么下一次epoll_wait是不会返回这个连接的。ET叫做 边缘触发，就是指，只有连接从一个状态转到另一个状态时，才会触发epoll_wait返回它。可见，ET的编程要复杂不少，至少应用程序要小心的防止epoll_wait的返回的连接出现：可写时未写数据后却期待下一次“可写”、可读时未读尽数据却期待下一次“可读”。  
 
 当然，从一般应用场景上它们性能是不会有什么大的差距的，ET可能的优点是，epoll_wait的调用次数会减少一些，某些场景下连接在不必要唤醒时不会被唤醒（此唤醒指epoll_wait返回）。但如果像我上面举例所说的，有时它不单纯是一个网络问题，跟应用场景相关。当然，大部分开源框架都是基于ET写的，框架嘛，它追求的是纯技术问题，当然力求尽善尽美。  
+
+
+## [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
