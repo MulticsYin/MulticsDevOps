@@ -30,8 +30,8 @@
 #include <string.h>
 
 union {
-    int i;
-    char ch;
+    int     i;
+    char    ch;
 }data;
 
 int main() {
