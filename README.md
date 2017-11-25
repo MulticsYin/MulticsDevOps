@@ -25,6 +25,9 @@
 * [高性能网络编程5 - IO复用与并发编程](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram04.md#高性能网络编程5---io复用与并发编程)  
 多路复用可以同时处理多个连接！它也可能“等待”，所以它也会导致线程睡眠，然而这不要紧，因为它一对多、它可以监控所有连接。这样，没有那么多个线程都在争抢处理“等待消息准备好”阶段，整个世界终于清净了！  
 
+* [高性能网络编程6 - REACTOR反应堆与定时器管理](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram05.md#高性能网络编程6---reactor反应堆与定时器管理)  
+反应堆开发模型被绝大多数高性能服务器所选择，上一篇所介绍的IO多路复用是它的实现基础。定时触发功能通常是服务器必备组件，反应堆模型往往还不得不将定时器的管理囊括在内。本篇将介绍反应堆模型的特点和用法。  
+
 * [大小字节序理解和鉴定系统字节序方法](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/site.md#大小字节序理解和鉴定系统字节序方法)[转]  
 计算机硬件有两种储存数据的方式：大端字节序（big endian）和小端字节序（little endian）。
 
