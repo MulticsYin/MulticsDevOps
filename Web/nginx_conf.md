@@ -19,10 +19,10 @@ worker_rlimit_nofile 65535;
 #工作模式与连接数上限
 events
 {
-#参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型。
-use epoll;
-#单个进程最大连接数（最大连接数=连接数*进程数）
-worker_connections 65535;
+    #参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型。
+    use epoll;
+    #单个进程最大连接数（最大连接数=连接数*进程数）
+    worker_connections 65535;
 }
 
 #设定http服务器
