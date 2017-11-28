@@ -49,46 +49,46 @@ Kafka集群运行依赖Zookeeper集群，所以我们先配置Zookeeper集群。
 __cluster00__
 ```
 1. start cluster00
-1) /cluster/server/zookeeper/bin/zkServer.sh start
-2) /cluster/server/zookeeper/bin/zkServer.sh status
-3) /cluster/server/kafka/bin/kafka-server-start.sh -daemon /cluster/server/kafka/config/server.properties
+    1) /cluster/server/zookeeper/bin/zkServer.sh start
+    2) /cluster/server/zookeeper/bin/zkServer.sh status
+    3) /cluster/server/kafka/bin/kafka-server-start.sh -daemon /cluster/server/kafka/config/server.properties
 
 2. producer
-1) /cluster/server/kafka/bin/kafka-console-producer.sh --broker-list 192.168.1.22:9092 --topic multics
+    1) /cluster/server/kafka/bin/kafka-console-producer.sh --broker-list 192.168.1.22:9092 --topic multics
 
 3. stop cluster00
-1) /cluster/server/kafka/bin/kafka-server-stop.sh
-2) /cluster/server/zookeeper/bin/zkServer.sh stop
+    1) /cluster/server/kafka/bin/kafka-server-stop.sh
+    2) /cluster/server/zookeeper/bin/zkServer.sh stop
 ```
 
 __cluster01__
 ```
 1. start cluster01
-1) /cluster/server/zookeeper/bin/zkServer.sh start
-2) /cluster/server/zookeeper/bin/zkServer.sh status
-3) /cluster/server/kafka/bin/kafka-server-start.sh -daemon /cluster/server/kafka/config/server.properties
+    1) /cluster/server/zookeeper/bin/zkServer.sh start
+    2) /cluster/server/zookeeper/bin/zkServer.sh status
+    3) /cluster/server/kafka/bin/kafka-server-start.sh -daemon /cluster/server/kafka/config/server.properties
 
 2. consumer
-1) /cluster/server/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.22:9092 --topic multics --from-beginning
+    1) /cluster/server/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.22:9092 --topic multics --from-beginning
 
 3. stop cluster01
-1) /cluster/server/kafka/bin/kafka-server-stop.sh
-2) /cluster/server/zookeeper/bin/zkServer.sh stop
+    1) /cluster/server/kafka/bin/kafka-server-stop.sh
+    2) /cluster/server/zookeeper/bin/zkServer.sh stop
 ```
 
 __cluster02__
 ```
 1. start cluster02
-1) /cluster/server/zookeeper/bin/zkServer.sh start
-2) /cluster/server/zookeeper/bin/zkServer.sh status
-3) /cluster/server/kafka/bin/kafka-server-start.sh -daemon /cluster/server/kafka/config/server.properties
+    1) /cluster/server/zookeeper/bin/zkServer.sh start
+    2) /cluster/server/zookeeper/bin/zkServer.sh status
+    3) /cluster/server/kafka/bin/kafka-server-start.sh -daemon /cluster/server/kafka/config/server.properties
 
 2. consumer
-1) /cluster/server/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.22:9092 --topic multics --from-beginning
+    1) /cluster/server/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.22:9092 --topic multics --from-beginning
 
 3. stop cluster02
-1) /cluster/server/kafka/bin/kafka-server-stop.sh
-2) /cluster/server/zookeeper/bin/zkServer.sh stop
+    1) /cluster/server/kafka/bin/kafka-server-stop.sh
+    2) /cluster/server/zookeeper/bin/zkServer.sh stop
 ```
 
 ## [返回目录](https://github.com/MulticsYin/MulticsDevOps#分布式系统相关组件)
