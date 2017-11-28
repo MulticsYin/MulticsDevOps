@@ -62,7 +62,7 @@ ZooKeeper是源代码开放的分布式协调服务，由雅虎创建，是Googl
 * [Kafka中文教程](http://www.orchome.com/kafka/index)（OrcHome链接）  
 Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写，它以可水平扩展和高吞吐率而被广泛使用。  
 
-* [Zookeeper&Kafka集群配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/DistributedSystems/Zookeeper&Kafka.md#zookeeperkafka集群配置)  
+* [Zookeeper&Kafka集群配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/DistributedSystems/Zookeeper&Kafka.md#zookeeperkafka集群配置)  
 该教程在虚拟机（VMware）中虚拟三台Linux服务器，构建一个Zookeeper&Kafka集群  
 
 ### 微服务 - Micro service
