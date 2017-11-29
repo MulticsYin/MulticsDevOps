@@ -53,5 +53,6 @@ int main() {
 
 参考：  
 * [理解字节序](http://www.ruanyifeng.com/blog/2016/11/byte-order.html)
+* [字符编码笔记：ASCII，Unicode 和 UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
 
 ## [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
