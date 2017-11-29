@@ -1,8 +1,8 @@
 # Zookeeper&Kafka集群配置
 
-前提：
-1. 三台Linux主机。
-2. JDK，Zookeeper，Kafka安装包。
+前期准备：  
+1. 三台Linux主机(本文采用ubuntu16.04 Server)。
+2. JAVA JDK，Zookeeper，Kafka安装包。
 
 ## 一、构建基础环境
 ```
