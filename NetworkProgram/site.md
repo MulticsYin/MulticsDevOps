@@ -109,7 +109,7 @@ int main() {
 将结合体的整型值赋值为1，如果是小字节序，小端有效，低地址写入的就是1，读出字符ch就是1  
 如果是大字节序，大端有效，低地址写入的就是0，读出字符ch就是0  
 
-参考：  
+参考及引用博客：  
 * [大小字节序的深入理解和鉴定系统字节序方法](http://www.cnblogs.com/dxx-blogs/p/5324320.html)  
 * [详解大端模式和小端模式](http://blog.csdn.net/ce123_zhouwei/article/details/6971544)
 * [理解字节序](http://www.ruanyifeng.com/blog/2016/11/byte-order.html)
