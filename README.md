@@ -77,6 +77,8 @@ OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（autho
 ### 运维相关
 * [Shell 编程](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/shell.md#综合案例)  
 Shell脚本入门指南
+* MySQL
+[MySQL创建用户与授权](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/MYSQL/user.md)  
 
 ### vim
 * [vim配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Vim/vimCongig.md#vim配置)  
