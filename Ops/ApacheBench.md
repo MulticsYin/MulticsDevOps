@@ -86,27 +86,17 @@ Options are:
 
 __测试结果分析__  
 ```
-Concurrency Level: 1000
-#测试的并发数
-Time taken for tests: 11.846 seconds
-#整个测试持续的时间
-Complete requests: 4000
-#完成的请求数量
-Failed requests: 0
-#失败的请求数量
+Concurrency Level: 1000  -------------------------------------------  # 测试的并发数
+Time taken for tests: 11.846 seconds  ------------------------------  # 整个测试持续的时间
+Complete requests: 4000  -------------------------------------------  # 完成的请求数量
+Failed requests: 0  ------------------------------------------------  # 失败的请求数量
 Write errors: 0
-Total transferred: 204586997 bytes
-#整个过程中的网络传输量
-HTML transferred: 203479961 bytes
-#整个过程中的HTML内容传输量
-Requests per second: 337.67 [#/sec] (mean)
-#最重要的指标之一，相当于LR中的每秒事务数，后面括号中的mean表示这是一个平均值
-Time per request: 2961.449 [ms] (mean)
-#最重要的指标之二，相当于LR中的平均事务响应时间，后面括号中的mean表示这是一个平均值
-Time per request: 2.961 [ms] (mean, across all concurrent requests)
-#每个连接请求实际运行时间的平均值
-Transfer rate: 16866.07 [Kbytes/sec] received
-#平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题
+Total transferred: 204586997 bytes  --------------------------------  # 整个过程中的网络传输量
+HTML transferred: 203479961 bytes  ---------------------------------  # 整个过程中的HTML内容传输量
+Requests per second: 337.67 [#/sec] (mean)  ------------------------  # 最重要的指标之一，相当于LR中的每秒事务数，后面括号中的mean表示这是一个平均值
+Time per request: 2961.449 [ms] (mean)  ----------------------------  # 最重要的指标之二，相当于LR中的平均事务响应时间，后面括号中的mean表示这是一个平均值
+Time per request: 2.961 [ms] (mean, acrossall concurrent requests)    # 每个连接请求实际运行时间的平均值
+Transfer rate: 16866.07 [Kbytes/sec] received  ---------------------  # 平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题
 ```
 
 __参考链接：__  
