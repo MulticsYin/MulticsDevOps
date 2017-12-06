@@ -108,3 +108,9 @@ Time per request: 2.961 [ms] (mean, across all concurrent requests)
 Transfer rate: 16866.07 [Kbytes/sec] received
 #平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题
 ```
+
+__参考链接：__  
+* [超实用压力测试工具－ab工具](http://www.jianshu.com/p/43d04d8baaf7)
+* [apache-ab并发负载压力测试](http://www.jianshu.com/p/166a4ea8aade)
+
+## [返回目录](https://github.com/MulticsYin/MulticsDevOps#运维相关)
