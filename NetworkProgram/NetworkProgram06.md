@@ -126,7 +126,7 @@ tcp_mem[3]数组就用来设定TCP内存的整体使用状况，所以它的值�
 
 下图为需要新缓存时内核的简化逻辑：
 
-
+![](https://github.com/MulticsYin/MulticsDevOps/blob/master/picture/netP71.jpg)
 
 当系统在非压力模式下，上面我所说的每个连接的读写缓存上限，才有可能增加，当然最大也不会超过tcp_rmem[2]或者tcp_wmem[2]。相反，在压力模式下，读写缓存上限则有可能减少，虽然上限可能会小于tcp_rmem[0]或者tcp_wmem[0]。  
 
