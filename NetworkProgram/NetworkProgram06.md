@@ -139,3 +139,6 @@ tcp_mem[3]数组就用来设定TCP内存的整体使用状况，所以它的值�
 3、只要总体内存不超过tcp_mem[0]，那么新内存在不超过连接缓存的上限时也能保证分配成功。  
 
 4、tcp_mem[1]与tcp_mem[0]构成了开启、关闭内存压力模式的开关。在压力模式下，连接缓存上限可能会减少。在非压力模式下，连接缓存上限可能会增加，最多增加到tcp_rmem[2]或者tcp_wmem[2]。  
+
+
+## [返回目录](https://github.com/MulticsYin/MulticsDevOps/blob/master/README.md#网络编程)
