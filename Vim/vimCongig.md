@@ -2,6 +2,8 @@
 
 [配置文件地址](https://github.com/MulticsYin/MulticsDevOps/blob/master/Configuration_file/vimrc)  
 
+## [项目地址](https://github.com/MulticsYin/MulticsVim)  
+
 图片仅仅为演示所用，相信现实中不会有人留这么多空格吧？
 
 如图：  
