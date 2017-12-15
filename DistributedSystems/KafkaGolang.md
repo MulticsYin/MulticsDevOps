@@ -1,1 +1,5 @@
-# 使用Golang开发Kafka相关程序
+# 使用 Golang 开发 Kafka 程序
+
+使用golang来开发Kafka可以使用sarama库。
+
+
