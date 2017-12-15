@@ -97,4 +97,7 @@ func main() {
 }
 ```
 
+__参考：__  
+* [kafka实战](http://legendtkl.com/2016/06/30/kafka-in-action/)
+
 ## [返回目录](https://github.com/MulticsYin/MulticsDevOps/blob/master/README.md#分布式系统相关组件)
