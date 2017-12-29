@@ -3,6 +3,10 @@
 解读RunC源码，RunC GitHub地址：https://github.com/opencontainers/runc  
 
 ## 参考文章  
+* [Docker背后的标准化容器执行引擎——runC](http://www.infoq.com/cn/articles/docker-standard-container-execution-engine-runc)
+* [Docker背后的容器管理——Libcontainer深度解析](http://www.infoq.com/cn/articles/docker-container-management-libcontainer-depth-analysis?utm_source=infoq&utm_campaign=user_page&utm_medium=link)
+* [Docker背后的内核知识——cgroups资源限制](http://www.infoq.com/cn/articles/docker-kernel-knowledge-cgroups-resource-isolation?utm_source=infoq&utm_campaign=user_page&utm_medium=link)
+* [Docker背后的内核知识——Namespace资源隔离](http://www.infoq.com/cn/articles/docker-kernel-knowledge-namespace-resource-isolation?utm_source=infoq&utm_campaign=user_page&utm_medium=link)
 * [runC总体调用逻辑](http://blog.csdn.net/waltonwang/article/details/53892790)  
 * [zhonglinzhang博客](http://blog.csdn.net/zhonglinzhang/article/category/3271199)
 
