@@ -2,7 +2,9 @@
 
 解读RunC源码，RunC GitHub地址：https://github.com/opencontainers/runc  
 
-
+## 参考文章  
+* [runC总体调用逻辑](http://blog.csdn.net/waltonwang/article/details/53892790)  
+* [zhonglinzhang博客](http://blog.csdn.net/zhonglinzhang/article/category/3271199)
 
 ## [返回目录](https://github.com/MulticsYin/MulticsDevOps#dockerkubernetes)  
 
