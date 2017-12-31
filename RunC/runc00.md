@@ -7,6 +7,11 @@
 * [Docker背后的容器管理——Libcontainer深度解析](http://www.infoq.com/cn/articles/docker-container-management-libcontainer-depth-analysis?utm_source=infoq&utm_campaign=user_page&utm_medium=link)
 * [Docker背后的内核知识——cgroups资源限制](http://www.infoq.com/cn/articles/docker-kernel-knowledge-cgroups-resource-isolation?utm_source=infoq&utm_campaign=user_page&utm_medium=link)
 * [Docker背后的内核知识——Namespace资源隔离](http://www.infoq.com/cn/articles/docker-kernel-knowledge-namespace-resource-isolation?utm_source=infoq&utm_campaign=user_page&utm_medium=link)
+* [DOCKER基础技术：LINUX NAMESPACE（上）](https://coolshell.cn/articles/17010.html)
+* [DOCKER基础技术：LINUX NAMESPACE（下）](https://coolshell.cn/articles/17029.html)
+* [DOCKER基础技术：LINUX CGROUP](https://coolshell.cn/articles/17049.html)
+* [DOCKER基础技术：AUFS](https://coolshell.cn/articles/17061.html)
+* [DOCKER基础技术：DEVICEMAPPER](https://coolshell.cn/articles/17200.html)
 * [runC总体调用逻辑](http://blog.csdn.net/waltonwang/article/details/53892790)  
 * [zhonglinzhang博客](http://blog.csdn.net/zhonglinzhang/article/category/3271199)
 
