@@ -10,7 +10,7 @@
 
 * [RunC 源码解读](https://github.com/MulticsYin/MulticsDevOps/blob/master/RunC/runc00.md#runc-源码解读)
 
-### 网络编程
+### 网络&网络编程
 * [高性能网络编程](http://taohui.pub/?cat=9)[陶辉笔记]  
 掌握高性能网络编程，涉及到对网络、操作系统协议栈、进程与线程、常见的网络组件等知识点，需要有丰富的项目开发经验，能够权衡服务器运行效率与项目开发效率。 
 
@@ -37,6 +37,8 @@
 
 * [大小字节序理解和鉴定系统字节序方法](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/site.md#大小字节序理解和鉴定系统字节序方法)[转]  
 计算机硬件有两种储存数据的方式：大端字节序（big endian）和小端字节序（little endian）。
+
+* [VLAN](http://network.51cto.com/art/201409/450885.htm) [VXLAN](http://blog.csdn.net/freezgw1985/article/details/16354897)
 
 ### Git&GitHub
 * [Ubuntu16.04下Git&Gitosis服务器安装与配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Git-Github/Ubuntu16.04%E4%B8%8BGit&Gitosis%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.md#ubuntu1604下gitgitosis服务器安装与配置)  
