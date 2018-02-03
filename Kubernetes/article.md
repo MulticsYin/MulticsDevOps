@@ -8,5 +8,6 @@
 * [图解Kubernetes网络（二）](http://dockone.io/article/3212)
 * [10 Most Common Reasons Kubernetes Deployments Fail (Part 1)](https://kukulinski.com/10-most-common-reasons-kubernetes-deployments-fail-part-1/)
 * [10 Most Common Reasons Kubernetes Deployments Fail (Part 2)](https://kukulinski.com/10-most-common-reasons-kubernetes-deployments-fail-part-2/)
+* [Prometheus原理和源码分析](http://www.infoq.com/cn/articles/Prometheus-theory-source-code)
 
 ## [返回目录](https://github.com/MulticsYin/MulticsDevOps/blob/master/README.md#dockerkubernetes)
