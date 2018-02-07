@@ -80,6 +80,8 @@ Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写�
 该教程在虚拟机（VMware）中虚拟三台Linux服务器，构建一个Zookeeper&Kafka集群  
 
 ### 微服务 - Micro service
+* [微服务优秀文章](https://github.com/MulticsYin/MulticsDevOps/blob/master/MicroService/article.md#%E5%B9%B3%E6%97%B6%E9%98%85%E8%AF%BB%E5%88%B0%E6%9C%89%E5%85%B3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%A7%89%E5%BE%97%E4%B8%8D%E9%94%99%E7%9A%84%E6%96%87%E7%AB%A0)
+
 * [微服务架构](http://www.infoq.com/cn/profile/%E8%8B%8F%E6%A7%90)
 
 * [OAuth2.0 鉴权机制](https://github.com/MulticsYin/MulticsDevOps/blob/master/MicroService/OAuth2.0.md#oauth20-鉴权机制)  
