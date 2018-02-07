@@ -82,15 +82,8 @@ Kafka是由LinkedIn开发的一个分布式的消息系统，使用Scala编写�
 ### 微服务 - Micro service
 * [微服务优秀文章](https://github.com/MulticsYin/MulticsDevOps/blob/master/MicroService/article.md#%E5%B9%B3%E6%97%B6%E9%98%85%E8%AF%BB%E5%88%B0%E6%9C%89%E5%85%B3%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%A7%89%E5%BE%97%E4%B8%8D%E9%94%99%E7%9A%84%E6%96%87%E7%AB%A0)
 
-* [微服务架构](http://www.infoq.com/cn/profile/%E8%8B%8F%E6%A7%90)
-
 * [OAuth2.0 鉴权机制](https://github.com/MulticsYin/MulticsDevOps/blob/master/MicroService/OAuth2.0.md#oauth20-鉴权机制)  
 OAuth在"客户端"与"服务提供商"之间，设置了一个授权层（authorization layer）。"客户端"不能直接登录"服务提供商"，只能登录授权层，以此将用户与客户端区分开来。"客户端"登录授权层所用的令牌（token），与用户的密码不同。用户可以在登录的时候，指定授权层令牌的权限范围和有效期。  
-
-* [认证鉴权与API权限控制在微服务架构中的设计与实现](http://blueskykong.com/categories/Security/)(转载)  
-系统微服务化后，原有的单体应用是基于Session的安全权限方式，不能满足现有的微服务架构的认证与鉴权需求。微服务架构下，一个应用会被拆分成若干个微应用，每个微应用都需要对访问进行鉴权，每个微应用都需要明确当前访问用户以及其权限。尤其当访问来源不只是浏览器，还包括其他服务的调用时，单体应用架构下的鉴权方式就不是特别合适了。在微服务架构下，要考虑外部应用接入的场景、用户–服务的鉴权、服务–服务的鉴权等多种鉴权场景。  
-比如用户A访问User Service，A如果未登录，则首先需要登录，请求获取授权token。获取token之后，A将携带着token去请求访问某个文件，这样就需要对A的身份进行校验，并且A可以访问该文件。  
-为了适应架构的变化、需求的变化，auth权限模块被单独出来作为一个基础的微服务系统，为其他业务service提供服务。
 
 ### 运维相关
 * [Shell 编程](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/shell.md#综合案例)  
