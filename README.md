@@ -92,6 +92,8 @@ Shell脚本入门指南
 * [ApacheBench 使用](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/ApacheBench.md#apachebench-使用)  
 apache ab（Apache Bench）性能测试工具，这是`Apache`免费自带的性能测试工具，就在`Apache`的`bin`目录下，它能模拟多个并发请求，主要是用来测试`apache`每秒能处理多少请求。
 
+* [Linux轻量级自动运维工具-Ansible浅析](http://blog.51cto.com/weiweidefeng/1895261)
+
 * MySQL  
 [MySQL创建用户与授权](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/MYSQL/user.md#mysql创建用户与授权)  
 
