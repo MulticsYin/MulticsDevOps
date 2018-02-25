@@ -14,5 +14,6 @@
 * [10 Most Common Reasons Kubernetes Deployments Fail (Part 2)](https://kukulinski.com/10-most-common-reasons-kubernetes-deployments-fail-part-2/)
 * [Prometheus原理和源码分析](http://www.infoq.com/cn/articles/Prometheus-theory-source-code)
 * [How To Build Kubernetes Platform (构建Kubernetes平台方案参考）](https://anor.cnblogs.com/p/8436428.html?from=timeline&isappinstalled=0#MSKubernetesPlatform-Architecture)
+* [k8s1.9.2基于kubeadm高可用安装教程，包含离线安装包，支持简单快速安装](https://studygolang.com/articles/12389)
 
 ## [返回目录](https://github.com/MulticsYin/MulticsDevOps/blob/master/README.md#dockerkubernetes)
