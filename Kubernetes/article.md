@@ -4,7 +4,6 @@
 * [Kubernetes Documentation](https://kubernetes.io/docs/home/?path=users&persona=app-developer&level=foundational)
 * [Kubernetes Handbook](https://jimmysong.io/kubernetes-handbook/)
 * [Kubernetes官方文档(中文)](https://k8smeetup.github.io/)
-
 * [YAML 语言教程](http://www.ruanyifeng.com/blog/2016/07/yaml.html)
 
 ## 文章
