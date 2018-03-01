@@ -18,5 +18,7 @@
 * [How To Build Kubernetes Platform (构建Kubernetes平台方案参考）](https://anor.cnblogs.com/p/8436428.html?from=timeline&isappinstalled=0#MSKubernetesPlatform-Architecture)
 * [k8s1.9.2基于kubeadm高可用安装教程，包含离线安装包，支持简单快速安装](https://studygolang.com/articles/12389)
 * [Kubernetes HA 1.9 高可用集群,本地离线部署](https://mp.weixin.qq.com/s?__biz=MzI5ODQ2MzI3NQ==&mid=2247484401&idx=1&sn=514ca7654d686a7938b6b1f821a61139&chksm=eca43ab5dbd3b3a3e0390708e4d5cc7ed5e0651038e05b704ae341d625f4eb273d4e55ed9489&scene=0#rd)
+* [kubelet版本升级引起的容器重启机制与参考解决方案](https://www.kubernetes.org.cn/3625.html)
+
 
 ## [返回目录](https://github.com/MulticsYin/MulticsDevOps/blob/master/README.md#dockerkubernetes)
