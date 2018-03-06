@@ -56,6 +56,8 @@
 * [负载均衡层技术(补充) - HAProxy](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/LoadBalancing.md)  
 HAProxy是基于TCP四层和HTTP七层的开源的第三方应用负载均衡软件。具有高可靠性、高稳定性、高并发处理能力、透明代理和支持ACL功能等特点。HAProxy是一个功能强大且优秀的负载均衡集群解决方案。
 
+* [nginx 安装与配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/nginx-install-set.md#nginx-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE)
+
 * [Nginx配置文件nginx.conf详解](https://github.com/MulticsYin/MulticsDevOps/blob/master/Web/nginx_conf.md)  
 Nginx("engine x")是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
 在高连接并发的情况下，Nginx是Apache服务器不错的替代品。  
