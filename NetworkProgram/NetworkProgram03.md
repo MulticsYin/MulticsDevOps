@@ -154,4 +154,5 @@ so_linger用来保证对方收到了close时发出的消息，即，至少需要
 以上，就是close与shutdown的主要行为，同时也回答了本文最初的5个问题。下一篇，我们开始讨论多路复用中常见的epoll。
 
 
-## [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
+### [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
+### [下一篇 - 高性能网络编程5 - IO复用与并发编程](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram04.md#%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B5---io%E5%A4%8D%E7%94%A8%E4%B8%8E%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B)
