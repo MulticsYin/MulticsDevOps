@@ -92,4 +92,5 @@
 如果程序比较复杂，例如一块内存数据的处理希望由多核共同完成，这样反应堆模型就很难做到了，需要昂贵的代价，引入许多复杂的机制。所以，大家就可以理解像redis、nodejs这样的服务，为什么只能是单线程，为什么memcached简单些的服务确可以是多线程。  
 
 
-## [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
+### [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
+### [下一章 - 高性能网络编程7–TCP连接的内存使用](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram06.md#%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B7---tcp%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8)
