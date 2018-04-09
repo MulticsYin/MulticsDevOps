@@ -109,4 +109,5 @@ __三、 网络的复杂性会影响到服务器的吞吐量，而且，高吞�
 
 所以，企业级的服务器进程中，若某一线程既使用accept获取新连接，又继续在这个连接上读、写字符流，那么，这个连接对应的套接字通常要设为非阻塞。原因如上图，调用accept时不会长期占用所属线程的CPU时间片，使得线程能够及时的做其他工作。  
 
-## [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
+### [返回目录](https://github.com/MulticsYin/MulticsDevOps#网络编程)
+### [下一篇 - 高性能网络编程2 - TCP消息的发送](https://github.com/MulticsYin/MulticsDevOps/blob/master/NetworkProgram/NetworkProgram01.md#%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B2---tcp%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81)
