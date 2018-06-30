@@ -97,6 +97,8 @@ apache ab（Apache Bench）性能测试工具，这是`Apache`免费自带的性
 * MySQL  
 [MySQL创建用户与授权](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/MYSQL/user.md#mysql创建用户与授权)  
 
+[CentOS6.8 MySQL 备份升级(5.7)](https://github.com/MulticsYin/MulticsDevOps/blob/master/Ops/MYSQL/backup&update.md#mysql-%E5%A4%87%E4%BB%BD--%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8D%87%E7%BA%A7)
+
 ### vim
 * [vim配置](https://github.com/MulticsYin/MulticsDevOps/blob/master/Vim/vimCongig.md#vim配置)  
 Vim 是我最喜欢的代码编辑工具，共享下我的Vim配置，有效果图，欢迎提建议。
