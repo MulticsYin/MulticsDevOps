@@ -11,3 +11,18 @@
 mysql -hhostname -uusername -ppassword databasename < backupfile.sql
 ```
 
+## 二进制升级
+
+
+
+### 升级后设置初始密码
+```
+SET PASSWORD = PASSWORD('your_new_password');
+```
+### 允许其他主机登录
+```
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'your_new_password' WITH GRANT OPTION;
+```
+
+## 参考
+[CentOS 6.8下MySQL 5.7.14二进制安装详解](https://www.linuxidc.com/Linux/2017-05/144043.htm)
